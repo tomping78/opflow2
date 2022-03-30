@@ -12,6 +12,7 @@ import {
 } from '../../molecules/Table/constants/page';
 import { DeleteOutlined } from '@ant-design/icons';
 import { message } from 'antd';
+import Search from '../../atoms/Search';
 
 const columns = [
   {
@@ -149,6 +150,7 @@ const Boards = () => {
   return (
     <>
       <ListTemplate>
+        <Search onSearch={value => console.log(value)} />
         <Table
           usePagination
           style={{ paddingLeft: 10, paddingRight: 10 }}
