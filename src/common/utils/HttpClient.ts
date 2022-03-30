@@ -1,10 +1,50 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { message as toast } from 'antd';
+import { RecoilSet } from '../../SpinStatePortal';
+import { spinState } from '../../store/spin';
+
+function showLoading() {
+  RecoilSet<number>(spinState, spinState => spinState + 1);
+}
+
+function hideLoading() {
+  RecoilSet<number>(spinState, spinState => {
+    if (spinState === 0) return spinState;
+    return spinState - 1;
+  });
+}
 
 /**
  * Axios common header settings
  */
 axios.defaults.headers.common['Content-Type'] = 'application/json';
+
+/**
+ * Request interceptor
+ */
+axios.interceptors.request.use(
+  response => {
+    showLoading();
+    return response;
+  },
+  error => {
+    return error;
+  },
+);
+
+/**
+ * Response interceptor
+ */
+axios.interceptors.response.use(
+  response => {
+    hideLoading();
+    return response;
+  },
+  error => {
+    hideLoading();
+    return error;
+  },
+);
 
 /**
  * Show error response message
@@ -19,6 +59,7 @@ export function handlerResponseError(error: AxiosError) {
   if (status === 500) toast.error({ content: message });
   if (status === 400) toast.error({ content: message });
   if (status === 404) toast.error({ content: message });
+
   return Promise.reject(error.toJSON());
 }
 
