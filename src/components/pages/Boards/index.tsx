@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Table from '../../molecules/Table';
 import ListTemplate from '../../templates/ListTemplate';
 import { format } from 'date-fns';
@@ -7,12 +7,12 @@ import {
   DEFAULT_PAGE_SIZE,
 } from '../../molecules/Table/constants/page';
 import { DeleteOutlined } from '@ant-design/icons';
-import { message } from 'antd';
-import Search from '../../atoms/Search';
+import { Button, message, PageHeader, Row } from 'antd';
 import { useSearchParams } from 'react-router-dom';
 import { HttpClient } from '../../../common/utils/HttpClient';
 import { Page } from '../../../common/domain/Page';
 import { Board } from './domain';
+import Paragraph from 'antd/es/typography/Paragraph';
 
 const columns = [
   {
@@ -144,10 +144,86 @@ const Boards = () => {
    * Render
    ******************************************/
 
+  const IconLink = ({ src, text }: { src: string; text: string }) => (
+    <a className="example-link">
+      <img className="example-link-icon" src={src} alt={text} />
+      {text}
+    </a>
+  );
+
+  const content = (
+    <>
+      <Paragraph>
+        Ant Design interprets the color system into two levels: a system-level
+        color system and a product-level color system.
+      </Paragraph>
+      <Paragraph>
+        돈을 버는 능력, 모으는 능력, 쓰는 능력, 불리는 능력, 유지하는 능력.
+        ‘진짜 부자’가 된 실제 인물이 말해주는 ‘진짜 돈’만들기. 집콕 추천 도서.
+        부자가 되고 싶다면 필독. 통찰력을 주는 책. 당신이 진정한 교양인. 서비스:
+        부자되는 Tip, 베스트셀러, HOT & NEW.{' '}
+      </Paragraph>
+      <div>
+        <IconLink
+          src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+          text="Quick Start"
+        />
+        &nbsp;
+        <IconLink
+          src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+          text=" Product Info"
+        />
+        &nbsp;
+        <IconLink
+          src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+          text="Product Doc"
+        />
+      </div>
+    </>
+  );
+
+  const Content = ({
+    children,
+    extraContent,
+  }: {
+    children: ReactNode;
+    extraContent: ReactNode;
+  }) => (
+    <Row>
+      <div style={{ flex: 1 }}>{children}</div>
+      <div className="image">{extraContent}</div>
+    </Row>
+  );
+
   return (
     <>
       <ListTemplate>
-        <Search onSearch={value => console.log(value)} />
+        <PageHeader
+          className="site-page-header"
+          title="게시판"
+          subTitle="여행 도서 목록 입니다"
+          extra={[
+            <Row justify={'end'}>
+              <Button key="2">초기화</Button>
+              &nbsp;
+              <Button key="1" type="primary">
+                검색
+              </Button>
+            </Row>,
+          ]}
+        >
+          <Content
+            extraContent={
+              <img
+                src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
+                alt="content"
+                width="100%"
+              />
+            }
+          >
+            {content}
+          </Content>
+        </PageHeader>
         <Table
           usePagination
           style={{ paddingLeft: 10, paddingRight: 10 }}

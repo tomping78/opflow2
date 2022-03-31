@@ -1,7 +1,7 @@
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Boards from './components/pages/Boards';
-import { Layout, Menu, PageHeader } from 'antd';
+import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import {
   NodeIndexOutlined,
@@ -26,7 +26,7 @@ function Main() {
         <AntdContent
           style={{
             width: '100%',
-            height: '90vh',
+            height: '100vh',
             background: '#fff',
           }}
         >
@@ -39,20 +39,7 @@ function Main() {
 }
 
 function Header() {
-  return (
-    <PageHeader
-      className="site-page-header"
-      style={{
-        border: '1px solid rgb(235, 237, 240)',
-        background: '#fff',
-        paddingTop: 0,
-        paddingBottom: 0,
-      }}
-      onBack={() => null}
-      title="Title"
-      subTitle="This is a subtitle"
-    />
-  );
+  return <></>;
 }
 
 /**
