@@ -3,8 +3,13 @@ import Home from './components/pages/Home';
 import Boards from './components/pages/Boards';
 import { Layout, Menu, PageHeader } from 'antd';
 import React, { useState } from 'react';
-import { UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import {
+  NodeIndexOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from '@ant-design/icons';
 import PageNotFound from './components/pages/Errors/PageNotFound';
+import Notices from './components/pages/Notices';
 
 const { Content: AntdContent, Footer: AntdFooter, Sider: AntdSider } = Layout;
 
@@ -78,6 +83,9 @@ function Sider() {
         <Menu.Item key="/boards" icon={<VideoCameraOutlined />}>
           <Link to="boards">게시판</Link>
         </Menu.Item>
+        <Menu.Item key="/notices" icon={<NodeIndexOutlined />}>
+          <Link to="notices">공지사항</Link>
+        </Menu.Item>
       </Menu>
     </AntdSider>
   );
@@ -90,6 +98,7 @@ function Content() {
         <Route path="/">
           <Route index element={<Home />} />
           <Route path={'/boards'} element={<Boards />} />
+          <Route path={'/notices'} element={<Notices />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
