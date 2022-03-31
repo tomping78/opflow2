@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { Input } from 'antd';
-import { SearchProps } from 'antd/es/input';
+import { SearchProps as AntdSearchProps } from 'antd/es/input';
+import { InputProps, InputValue } from '../Input/Input';
+import isFunction from 'lodash/isFunction';
 
 const DEFAULT_SIZE = 'small';
+
+interface SearchProps extends AntdSearchProps, InputProps {}
 
 /**
  * Search Component
@@ -12,11 +16,17 @@ const DEFAULT_SIZE = 'small';
 const Search = ({
   size = DEFAULT_SIZE,
   allowClear = true,
+  value,
+  defaultValue,
+  valueValidator,
+  onChange,
   ...props
 }: SearchProps) => {
   /******************************************
    * Constant / State
    * ****************************************/
+
+  const [inputValue, setInputValue] = useState<InputValue>(defaultValue ?? '');
 
   /******************************************
    * Global State
@@ -25,6 +35,21 @@ const Search = ({
   /******************************************
    * Handler
    * ****************************************/
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    if (
+      isFunction(valueValidator) &&
+      valueValidator(event.target.value) !== true
+    ) {
+      return;
+    }
+
+    setInputValue(event.target.value);
+
+    if (isFunction(onChange)) {
+      onChange(event);
+    }
+  }
 
   /******************************************
    * Function
@@ -37,7 +62,15 @@ const Search = ({
   /******************************************
    * Render
    * ****************************************/
-  return <Input.Search size={size} allowClear={allowClear} {...props} />;
+  return (
+    <Input.Search
+      {...props}
+      value={value ?? inputValue}
+      size={size}
+      allowClear={allowClear}
+      onChange={handleChange}
+    />
+  );
 };
 
 export default Search;
