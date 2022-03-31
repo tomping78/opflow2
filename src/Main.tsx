@@ -11,7 +11,12 @@ import {
 import PageNotFound from './components/pages/Errors/PageNotFound';
 import Notices from './components/pages/Notices';
 
-const { Content: AntdContent, Footer: AntdFooter, Sider: AntdSider } = Layout;
+const {
+  Content: AntdContent,
+  Footer: AntdFooter,
+  Sider: AntdSider,
+  Header: AntdHeader,
+} = Layout;
 
 /**
  * 진입점
@@ -39,7 +44,18 @@ function Main() {
 }
 
 function Header() {
-  return <></>;
+  return (
+    <>
+      <AntdHeader
+        style={{
+          position: 'fixed',
+          zIndex: 1,
+          width: '100%',
+          background: '#fff',
+        }}
+      />
+    </>
+  );
 }
 
 /**
