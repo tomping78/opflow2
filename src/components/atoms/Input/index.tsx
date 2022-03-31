@@ -9,7 +9,7 @@ export interface InputProps extends AntdInputProps {
 }
 
 /**
- * Input
+ * Input Component
  * Author: circlegiven
  * Date: 2022-03-30
  */

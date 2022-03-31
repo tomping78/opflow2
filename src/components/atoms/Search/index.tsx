@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Input } from 'antd';
 import { SearchProps as AntdSearchProps } from 'antd/es/input';
-import { InputProps, InputValue } from '../Input/Input';
+import { InputProps, InputValue } from '../Input';
 import isFunction from 'lodash/isFunction';
 
 const DEFAULT_SIZE = 'small';
