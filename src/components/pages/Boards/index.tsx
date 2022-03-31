@@ -1,10 +1,6 @@
-import React from 'react';
-import { HttpClient } from '../../../common/utils/HttpClient';
+import React, { useEffect, useState } from 'react';
 import Table from '../../molecules/Table';
 import ListTemplate from '../../templates/ListTemplate';
-import { Board } from './domain';
-import { Page } from '../../../common/domain/Page';
-import { useSearchParamPagination } from '../../../common/hooks/useSearchParamPagination';
 import { format } from 'date-fns';
 import {
   DEFAULT_PAGE,
@@ -13,6 +9,10 @@ import {
 import { DeleteOutlined } from '@ant-design/icons';
 import { message } from 'antd';
 import Search from '../../atoms/Search';
+import { useSearchParams } from 'react-router-dom';
+import { HttpClient } from '../../../common/utils/HttpClient';
+import { Page } from '../../../common/domain/Page';
+import { Board } from './domain';
 
 const columns = [
   {
@@ -63,6 +63,9 @@ const Boards = () => {
   /******************************************
    * Constant / State
    ******************************************/
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [boards, setData] = useState<Page<Board>>();
 
   /******************************************
    * Global State
@@ -116,7 +119,7 @@ const Boards = () => {
    * @param pageSize
    */
   function onChangePagination(page: number, pageSize: number) {
-    changeSearchParams({
+    setSearchParams({
       page: (page - 1).toString(),
       size: pageSize.toString(),
     });
@@ -126,22 +129,16 @@ const Boards = () => {
    * Lifecycle
    ******************************************/
 
-  /**
-   * 게시글 조회
-   */
-  const { data, searchParams, changeSearchParams } = useSearchParamPagination<
-    Page<Board>
-  >(
-    (params: URLSearchParams): Promise<Page<Board>> =>
-      HttpClient.get('/api/boards', {
-        params: {
-          page: getCurrentPageNumberToUsedInRequest(params),
-          size: getCurrentPageSize(params),
-        },
-      })
-        .then(response => response?.data)
-        .catch(_ => []),
-  );
+  useEffect(() => {
+    HttpClient.get('/api/boards', {
+      params: {
+        page: getCurrentPageNumberToUsedInRequest(searchParams),
+        size: getCurrentPageSize(searchParams),
+      },
+    })
+      .then(response => setData(response.data))
+      .catch(error => setData(undefined));
+  }, [searchParams]);
 
   /******************************************
    * Render
@@ -155,9 +152,9 @@ const Boards = () => {
           usePagination
           style={{ paddingLeft: 10, paddingRight: 10 }}
           columns={columns}
-          dataSource={data?.content}
+          dataSource={boards?.content}
           scroll={{ y: 500 }}
-          total={data?.totalElements}
+          total={boards?.totalElements}
           defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
           defaultPageSize={getCurrentPageSize()}
           currentPage={getCurrentPageNumberToUsedInTablePagination()}
