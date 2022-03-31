@@ -29,6 +29,5 @@ export function usePagination<T, P extends object>({
       },
     ),
     changePage: changeParams,
-    changeFilter: changeParams,
   };
 }
