@@ -1,11 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Input as AntdInput, InputProps as AntdInputProps } from 'antd';
 import isFunction from 'lodash/isFunction';
-import isNil from 'lodash/isNil';
 
-type InputValue = string | ReadonlyArray<string> | number | undefined;
+export type InputValue = string | ReadonlyArray<string> | number | undefined;
 
-interface InputProps extends AntdInputProps {
+export interface InputProps extends AntdInputProps {
   valueValidator?: (value: InputValue) => boolean;
 }
 
@@ -16,7 +15,7 @@ interface InputProps extends AntdInputProps {
  */
 const Input = ({
   onChange,
-  valueValidator = () => true,
+  valueValidator,
   defaultValue,
   value,
   ...props
@@ -35,13 +34,16 @@ const Input = ({
    * ****************************************/
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    if (valueValidator(event.target.value) !== true) {
+    if (
+      isFunction(valueValidator) &&
+      valueValidator(event.target.value) !== true
+    ) {
       return;
     }
 
     setInputValue(event.target.value);
 
-    if (isFunction(onChange) && isNil(onChange) === false) {
+    if (isFunction(onChange)) {
       onChange(event);
     }
   }
