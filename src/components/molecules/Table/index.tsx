@@ -35,7 +35,9 @@ export interface TableProps<T>
  */
 const Table = <T extends object = any>({
   usePagination,
-  paginationOptions,
+  paginationOptions = {
+    size: 'default',
+  },
   defaultPageSize = PAGE_SIZE_10,
   defaultCurrentPage = DEFAULT_PAGE,
   pageSize = PAGE_SIZE_10,
