@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { GlobalConfiguration } from './GlobalConfiguration';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ConfigProvider } from 'antd';
 
 GlobalConfiguration.loadTheme();
 
@@ -14,9 +15,9 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       suspense: true,
-      refetchOnWindowFocus: false,
-    },
-  },
+      refetchOnWindowFocus: false
+    }
+  }
 });
 
 ReactDOM.render(
@@ -24,12 +25,14 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <RecoilRoot>
-          <App />
+          <ConfigProvider componentSize={"middle"}>
+            <App />
+          </ConfigProvider>
         </RecoilRoot>
       </BrowserRouter>
     </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

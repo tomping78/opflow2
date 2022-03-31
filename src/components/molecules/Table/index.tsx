@@ -35,9 +35,7 @@ export interface TableProps<T>
  */
 const Table = <T extends object = any>({
   usePagination,
-  paginationOptions = {
-    size: 'default',
-  },
+  paginationOptions,
   defaultPageSize = PAGE_SIZE_10,
   defaultCurrentPage = DEFAULT_PAGE,
   pageSize = PAGE_SIZE_10,
@@ -49,7 +47,6 @@ const Table = <T extends object = any>({
   onChangePage,
   rowKey = DEFAULT_ROW_KEY,
   total,
-  size = 'small',
   ...rest
 }: TableProps<T>) => {
   /******************************************
@@ -88,7 +85,6 @@ const Table = <T extends object = any>({
   return usePagination ? (
     <AntdTable<T>
       {...rest}
-      size={size}
       pagination={{
         ...paginationOptions,
         showSizeChanger: true,
@@ -110,7 +106,6 @@ const Table = <T extends object = any>({
   ) : (
     <AntdTable
       {...rest}
-      size={size}
       pagination={false}
       onRow={(data, index) => ({
         onClick: () => handleRowClick(data, index),
