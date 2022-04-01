@@ -7,13 +7,14 @@ import {
   DEFAULT_PAGE_SIZE,
 } from '../../molecules/Table/constants/page';
 import { DeleteOutlined } from '@ant-design/icons';
-import { Button, Col, message, PageHeader, Row } from 'antd';
+import { Col, Form, message, Row } from 'antd';
 import { useSearchParams } from 'react-router-dom';
 import { HttpClient } from '../../../common/utils/HttpClient';
 import { Page } from '../../../common/domain/Page';
 import { Board } from './domain';
 import Paragraph from 'antd/es/typography/Paragraph';
 import Search from '../../atoms/Search';
+import SearchPageHeader from '../../molecules/SearchPageHeader';
 
 const columns = [
   {
@@ -67,7 +68,6 @@ const Boards = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [boards, setData] = useState<Page<Board>>();
-
   /******************************************
    * Global State
    ******************************************/
@@ -122,6 +122,10 @@ const Boards = () => {
    * Handler
    ******************************************/
 
+  function onSearch({ keyword }: any) {
+    onChangeKeyword(keyword);
+  }
+
   /**
    * 페이지 정보 변경
    * @param page
@@ -139,7 +143,7 @@ const Boards = () => {
    * 검색어 변경
    * @param keyword
    */
-  function onChangeKeyword(keyword: string) {
+  function onChangeKeyword(keyword: string = '') {
     setSearchParams({
       page: DEFAULT_PAGE.toString(),
       size: DEFAULT_PAGE_SIZE.toString(),
@@ -180,10 +184,9 @@ const Boards = () => {
         <Row>
           <Col>검색어&nbsp;:&nbsp;</Col>
           <Col>
-            <Search
-              defaultValue={getCurrentKeyword(searchParams)}
-              onSearch={onChangeKeyword}
-            />
+            <Form.Item name="keyword">
+              <Search defaultValue={getCurrentKeyword(searchParams)} />
+            </Form.Item>
           </Col>
           &nbsp;
           <Col>
@@ -232,19 +235,11 @@ const Boards = () => {
   return (
     <>
       <ListTemplate>
-        <PageHeader
+        <SearchPageHeader
+          onSearch={onSearch}
           className="site-page-header"
           title="게시판"
           subTitle="여행 도서 목록 입니다"
-          extra={[
-            <Row justify={'end'}>
-              <Button key="2">초기화</Button>
-              &nbsp;
-              <Button key="1" type="primary">
-                검색
-              </Button>
-            </Row>,
-          ]}
         >
           <Content
             extraContent={
@@ -257,7 +252,7 @@ const Boards = () => {
           >
             {content}
           </Content>
-        </PageHeader>
+        </SearchPageHeader>
         <Table
           usePagination
           style={{ paddingLeft: 10, paddingRight: 10 }}
