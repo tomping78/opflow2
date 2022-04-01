@@ -1,9 +1,8 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { DefaultTemplate } from './index';
 import SearchPageHeader from '../../molecules/SearchPageHeader';
-import { Col, Form, Row, Select } from 'antd';
+import { Col, Row } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
-import Search from '../../atoms/Search';
 import Table from '../../molecules/Table';
 import { HttpClient } from '../../../common/utils/HttpClient';
 import { useSearchParams } from 'react-router-dom';
@@ -11,12 +10,14 @@ import {
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
 } from '../../molecules/Table/constants/page';
+import Filter, { FilterProp } from '../../molecules/Filter';
 
 interface ListTemplateAProps {
   title?: ReactNode;
   subTitle?: ReactNode;
   url: string;
   columns: any[];
+  filters?: FilterProp[];
 }
 
 /**
@@ -25,11 +26,12 @@ interface ListTemplateAProps {
  * Date: 2022-04-01
  */
 const ListTemplateA = ({
-  title,
-  subTitle,
-  url,
-  columns,
-}: ListTemplateAProps) => {
+                         title,
+                         subTitle,
+                         url,
+                         columns,
+                         filters,
+                       }: ListTemplateAProps) => {
   /******************************************
    * Constant / State
    * ****************************************/
@@ -45,8 +47,16 @@ const ListTemplateA = ({
    * Handler
    * ****************************************/
 
-  function onSearch({ keyword }: any) {
-    onChangeKeyword(keyword);
+  /**
+   * 필터 변경
+   * @param keyword
+   */
+  function onSearch(params: any = {}) {
+    setSearchParams({
+      page: DEFAULT_PAGE.toString(),
+      size: DEFAULT_PAGE_SIZE.toString(),
+      ...params,
+    });
   }
 
   /**
@@ -56,21 +66,9 @@ const ListTemplateA = ({
    */
   function onChangePagination(page: number, pageSize: number) {
     setSearchParams({
+      ...getCurrentSearchParams(),
       page: (page - 1).toString(),
       size: pageSize.toString(),
-      keyword: getCurrentKeyword(searchParams),
-    });
-  }
-
-  /**
-   * 검색어 변경
-   * @param keyword
-   */
-  function onChangeKeyword(keyword: string = '') {
-    setSearchParams({
-      page: DEFAULT_PAGE.toString(),
-      size: DEFAULT_PAGE_SIZE.toString(),
-      keyword,
     });
   }
 
@@ -99,7 +97,7 @@ const ListTemplateA = ({
    * @param queryString
    */
   function getCurrentPageNumberToUsedInTablePagination(
-    queryString = searchParams,
+      queryString = searchParams,
   ) {
     return getCurrentPageFromSearchParams(queryString) + 1;
   }
@@ -113,11 +111,11 @@ const ListTemplateA = ({
   }
 
   /**
-   * 현재 검섹어 사이즈 가져오기
+   * 현재 Search Params 가져오기
    * @param queryString
    */
-  function getCurrentKeyword(queryString = searchParams) {
-    return queryString?.get('keyword') ?? '';
+  function getCurrentSearchParams() {
+    return Object.fromEntries(searchParams);
   }
 
   /******************************************
@@ -127,88 +125,59 @@ const ListTemplateA = ({
   useEffect(() => {
     HttpClient.get(url, {
       params: {
+        ...getCurrentSearchParams(),
         page: getCurrentPageNumberToUsedInRequest(searchParams),
         size: getCurrentPageSize(searchParams),
-        keyword: getCurrentKeyword(searchParams),
       },
     })
-      .then(response => setData(response.data))
-      .catch(() => setData(undefined));
+        .then(response => setData(response.data))
+        .catch(() => setData(undefined));
   }, [searchParams]);
 
   /******************************************
    * Render
    * ****************************************/
   return (
-    <DefaultTemplate>
-      <SearchPageHeader
-        onSearch={onSearch}
-        className="site-page-header"
-        title={title}
-        subTitle={subTitle}
-        defaultSearchParams={Object.fromEntries(searchParams)}
-      >
-        <Row>
-          <div style={{ flex: 1 }}>
-            <>
-              <Paragraph>
-                <Row>
-                  <Col>
-                    <Form.Item name="category" label="카테고리">
-                      <Select
-                        defaultValue="lucy"
-                        placeholder={'선택해주세요'}
-                        style={{ width: 250 }}
-                      >
-                        <Select.Option value="jack">Jack</Select.Option>
-                        <Select.Option value="lucy">Lucy</Select.Option>
-                      </Select>
-                    </Form.Item>
-                  </Col>
-                  &nbsp;
-                  <Col>
-                    <Form.Item name="country" label="국가">
-                      <Select
-                        style={{ width: 250 }}
-                        placeholder={'선택해주세요'}
-                      >
-                        <Select.Option value="KOR">KOR</Select.Option>
-                        <Select.Option value="JPN">JPN</Select.Option>
-                      </Select>
-                    </Form.Item>
-                  </Col>
-                  &nbsp;
-                  <Col>
-                    <Form.Item name="keyword" label="검색어">
-                      <Search
-                        style={{ width: 250 }}
-                        placeholder={'제목이나 내용을 입력하세요'}
-                        defaultValue={getCurrentKeyword(searchParams)}
-                      />
-                    </Form.Item>
-                  </Col>
-                </Row>
-              </Paragraph>
-            </>
-          </div>
-        </Row>
-      </SearchPageHeader>
-      <Table
-        usePagination
-        style={{ paddingLeft: 10, paddingRight: 10 }}
-        columns={columns}
-        dataSource={data?.content}
-        scroll={{ y: 500 }}
-        total={data?.totalElements}
-        defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
-        defaultPageSize={getCurrentPageSize()}
-        currentPage={getCurrentPageNumberToUsedInTablePagination()}
-        pageSize={getCurrentPageSize()}
-        onChangePage={onChangePagination}
-        onClick={record => console.log('clicked', record)}
-        onDoubleClick={record => console.log('double clicked', record)}
-      />
-    </DefaultTemplate>
+      <DefaultTemplate>
+        <SearchPageHeader
+            onSearch={onSearch}
+            className="site-page-header"
+            title={title}
+            subTitle={subTitle}
+            defaultSearchParams={getCurrentSearchParams()}
+        >
+          <Row>
+            <div style={{flex: 1}}>
+              <>
+                <Paragraph>
+                  <Row>
+                    {(filters ?? []).map((filter: FilterProp) => (
+                        <Col>
+                          <Filter {...filter} />
+                        </Col>
+                    ))}
+                  </Row>
+                </Paragraph>
+              </>
+            </div>
+          </Row>
+        </SearchPageHeader>
+        <Table
+            usePagination
+            style={{paddingLeft: 10, paddingRight: 10}}
+            columns={columns}
+            dataSource={data?.content}
+            scroll={{y: 500}}
+            total={data?.totalElements}
+            defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
+            defaultPageSize={getCurrentPageSize()}
+            currentPage={getCurrentPageNumberToUsedInTablePagination()}
+            pageSize={getCurrentPageSize()}
+            onChangePage={onChangePagination}
+            onClick={record => console.log('clicked', record)}
+            onDoubleClick={record => console.log('double clicked', record)}
+        />
+      </DefaultTemplate>
   );
 };
 
