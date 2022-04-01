@@ -7,12 +7,13 @@ import {
   DEFAULT_PAGE_SIZE,
 } from '../../molecules/Table/constants/page';
 import { DeleteOutlined } from '@ant-design/icons';
-import { Button, message, PageHeader, Row } from 'antd';
+import { Button, Col, message, PageHeader, Row } from 'antd';
 import { useSearchParams } from 'react-router-dom';
 import { HttpClient } from '../../../common/utils/HttpClient';
 import { Page } from '../../../common/domain/Page';
 import { Board } from './domain';
 import Paragraph from 'antd/es/typography/Paragraph';
+import Search from '../../atoms/Search';
 
 const columns = [
   {
@@ -109,12 +110,20 @@ const Boards = () => {
     return Number(queryString?.get('size') ?? DEFAULT_PAGE_SIZE);
   }
 
+  /**
+   * 현재 검섹어 사이즈 가져오기
+   * @param queryString
+   */
+  function getCurrentKeyword(queryString = searchParams) {
+    return queryString?.get('keyword') ?? '';
+  }
+
   /******************************************
    * Handler
    ******************************************/
 
   /**
-   * 페이지 정보 변경시
+   * 페이지 정보 변경
    * @param page
    * @param pageSize
    */
@@ -122,6 +131,19 @@ const Boards = () => {
     setSearchParams({
       page: (page - 1).toString(),
       size: pageSize.toString(),
+      keyword: getCurrentKeyword(searchParams),
+    });
+  }
+
+  /**
+   * 검색어 변경
+   * @param keyword
+   */
+  function onChangeKeyword(keyword: string) {
+    setSearchParams({
+      page: DEFAULT_PAGE.toString(),
+      size: DEFAULT_PAGE_SIZE.toString(),
+      keyword,
     });
   }
 
@@ -134,10 +156,11 @@ const Boards = () => {
       params: {
         page: getCurrentPageNumberToUsedInRequest(searchParams),
         size: getCurrentPageSize(searchParams),
+        keyword: getCurrentKeyword(searchParams),
       },
     })
       .then(response => setData(response.data))
-      .catch(error => setData(undefined));
+      .catch(() => setData(undefined));
   }, [searchParams]);
 
   /******************************************
@@ -154,8 +177,19 @@ const Boards = () => {
   const content = (
     <>
       <Paragraph>
-        Ant Design interprets the color system into two levels: a system-level
-        color system and a product-level color system.
+        <Row>
+          <Col>검색어&nbsp;:&nbsp;</Col>
+          <Col>
+            <Search
+              defaultValue={getCurrentKeyword(searchParams)}
+              onSearch={onChangeKeyword}
+            />
+          </Col>
+          &nbsp;
+          <Col>
+            <Search disabled />
+          </Col>
+        </Row>
       </Paragraph>
       <Paragraph>
         돈을 버는 능력, 모으는 능력, 쓰는 능력, 불리는 능력, 유지하는 능력.
