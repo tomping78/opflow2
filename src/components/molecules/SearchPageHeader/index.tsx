@@ -6,6 +6,7 @@ import {
   PageHeaderProps as AntdPageHeaderProps,
   Row,
 } from 'antd';
+import { isNil } from 'lodash';
 
 interface SearchPageHeaderProps<T = any> extends AntdPageHeaderProps {
   children: ReactNode;
@@ -41,7 +42,7 @@ const SearchPageHeader = ({
    * ****************************************/
 
   /**
-   * 초기화
+   * 초기화 이벤트
    */
   function handleInitSearch() {
     form.resetFields();
@@ -52,7 +53,7 @@ const SearchPageHeader = ({
   }
 
   /**
-   * 검색
+   * 검색 이벤트
    */
   function handleSearch() {
     form.submit();
@@ -62,6 +63,24 @@ const SearchPageHeader = ({
    * Function
    * ****************************************/
 
+  /**
+   * SearchParams convert
+   * @param values
+   */
+  function safetySearchParams(values: any) {
+    return Object.fromEntries(
+      Object.entries(values).filter(([, value]) => !isNil(value)),
+    );
+  }
+
+  /**
+   * 검색
+   * @param values
+   */
+  function search(values: any) {
+    onSearch(safetySearchParams(values));
+  }
+
   /******************************************
    * Lifecycle
    * ****************************************/
@@ -70,14 +89,17 @@ const SearchPageHeader = ({
    * 초기 검색 params 설정
    */
   useEffect(() => {
-    if (defaultSearchParams) form.setFieldsValue(defaultSearchParams);
+    if (defaultSearchParams) {
+      form.resetFields();
+      form.setFieldsValue(defaultSearchParams);
+    }
   }, [defaultSearchParams]);
 
   /******************************************
    * Render
    * ****************************************/
   return (
-    <Form form={form} onFinish={onSearch}>
+    <Form form={form} onFinish={search}>
       <AntdPageHeader
         {...props}
         extra={
