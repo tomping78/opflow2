@@ -4,8 +4,6 @@ import { SearchProps as AntdSearchProps } from 'antd/es/input';
 import { InputProps, InputValue } from '../Input';
 import isFunction from 'lodash/isFunction';
 
-const DEFAULT_SIZE = 'small';
-
 interface SearchProps extends AntdSearchProps, InputProps {}
 
 /**
@@ -14,7 +12,6 @@ interface SearchProps extends AntdSearchProps, InputProps {}
  * Date: 2022-03-30
  */
 const Search = ({
-  size = DEFAULT_SIZE,
   allowClear = true,
   value,
   defaultValue,
@@ -66,7 +63,6 @@ const Search = ({
     <Input.Search
       {...props}
       value={value ?? inputValue}
-      size={size}
       allowClear={allowClear}
       onChange={handleChange}
     />
