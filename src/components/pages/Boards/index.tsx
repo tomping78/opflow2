@@ -187,7 +187,11 @@ const Boards = () => {
                   <Row>
                     <Col>
                       <Form.Item name="category" label="카테고리">
-                        <Select defaultValue="lucy" style={{ width: 200 }}>
+                        <Select
+                          defaultValue="lucy"
+                          placeholder={'선택해주세요'}
+                          style={{ width: 250 }}
+                        >
                           <Select.Option value="jack">Jack</Select.Option>
                           <Select.Option value="lucy">Lucy</Select.Option>
                         </Select>
@@ -195,9 +199,22 @@ const Boards = () => {
                     </Col>
                     &nbsp;
                     <Col>
+                      <Form.Item name="country" label="국가">
+                        <Select
+                          style={{ width: 250 }}
+                          placeholder={'선택해주세요'}
+                        >
+                          <Select.Option value="KOR">KOR</Select.Option>
+                          <Select.Option value="JPN">JPN</Select.Option>
+                        </Select>
+                      </Form.Item>
+                    </Col>
+                    &nbsp;
+                    <Col>
                       <Form.Item name="keyword" label="검색어">
                         <Search
-                          style={{ width: 200 }}
+                          style={{ width: 250 }}
+                          placeholder={'제목이나 내용을 입력하세요'}
                           defaultValue={getCurrentKeyword(searchParams)}
                         />
                       </Form.Item>
