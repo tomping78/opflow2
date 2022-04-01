@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import {
   Button,
   Form,
@@ -7,9 +7,11 @@ import {
   Row,
 } from 'antd';
 
-interface SearchPageHeaderProps extends AntdPageHeaderProps {
+interface SearchPageHeaderProps<T = any> extends AntdPageHeaderProps {
   children: ReactNode;
-  onSearch: (fields: any) => void;
+  disableInitSearch?: boolean;
+  defaultSearchParams?: T;
+  onSearch: (fields: T) => void;
 }
 
 /**
@@ -19,6 +21,8 @@ interface SearchPageHeaderProps extends AntdPageHeaderProps {
  */
 const SearchPageHeader = ({
   children,
+  defaultSearchParams,
+  disableInitSearch,
   onSearch,
   ...props
 }: SearchPageHeaderProps) => {
@@ -41,16 +45,17 @@ const SearchPageHeader = ({
    */
   function handleInitSearch() {
     form.resetFields();
-    handleSearch();
+
+    if (disableInitSearch !== true) {
+      handleSearch();
+    }
   }
 
   /**
    * 검색
    */
   function handleSearch() {
-    form.validateFields().then(fields => {
-      onSearch(fields);
-    });
+    form.submit();
   }
 
   /******************************************
@@ -61,18 +66,25 @@ const SearchPageHeader = ({
    * Lifecycle
    * ****************************************/
 
+  /**
+   * 초기 검색 params 설정
+   */
+  useEffect(() => {
+    if (defaultSearchParams) form.setFieldsValue(defaultSearchParams);
+  }, [defaultSearchParams]);
+
   /******************************************
    * Render
    * ****************************************/
   return (
-    <Form form={form}>
+    <Form form={form} onFinish={onSearch}>
       <AntdPageHeader
         {...props}
         extra={
           <Row justify={'end'}>
             <Button onClick={handleInitSearch}>초기화</Button>
             &nbsp;
-            <Button onClick={handleSearch} type="primary">
+            <Button htmlType="submit" type="primary">
               검색
             </Button>
           </Row>
