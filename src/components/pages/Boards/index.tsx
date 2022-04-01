@@ -190,12 +190,6 @@ const Boards = () => {
                         <Select defaultValue="lucy" style={{ width: 200 }}>
                           <Select.Option value="jack">Jack</Select.Option>
                           <Select.Option value="lucy">Lucy</Select.Option>
-                          <Select.Option value="disabled" disabled>
-                            Disabled
-                          </Select.Option>
-                          <Select.Option value="Yiminghe">
-                            yiminghe
-                          </Select.Option>
                         </Select>
                       </Form.Item>
                     </Col>
