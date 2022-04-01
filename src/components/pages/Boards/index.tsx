@@ -188,6 +188,7 @@ const Boards = () => {
                     <Col>
                       <Form.Item name="keyword" label="검색어">
                         <Search
+                          style={{ width: 200 }}
                           defaultValue={getCurrentKeyword(searchParams)}
                         />
                       </Form.Item>
@@ -195,7 +196,7 @@ const Boards = () => {
                     &nbsp;
                     <Col>
                       <Form.Item name="category" label="카테고리">
-                        <Select defaultValue="lucy" style={{ width: 120 }}>
+                        <Select defaultValue="lucy" style={{ width: 200 }}>
                           <Select.Option value="jack">Jack</Select.Option>
                           <Select.Option value="lucy">Lucy</Select.Option>
                           <Select.Option value="disabled" disabled>
