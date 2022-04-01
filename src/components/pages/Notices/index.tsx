@@ -1,5 +1,5 @@
 import React from 'react';
-import ListTemplate from '../../templates/ListTemplate';
+import { DefaultTemplate as ListTemplate } from '../../templates/ListTemplate';
 
 /**
  * Notices Component
