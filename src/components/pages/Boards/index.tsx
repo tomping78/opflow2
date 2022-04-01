@@ -186,15 +186,6 @@ const Boards = () => {
                 <Paragraph>
                   <Row>
                     <Col>
-                      <Form.Item name="keyword" label="검색어">
-                        <Search
-                          style={{ width: 200 }}
-                          defaultValue={getCurrentKeyword(searchParams)}
-                        />
-                      </Form.Item>
-                    </Col>
-                    &nbsp;
-                    <Col>
                       <Form.Item name="category" label="카테고리">
                         <Select defaultValue="lucy" style={{ width: 200 }}>
                           <Select.Option value="jack">Jack</Select.Option>
@@ -206,6 +197,15 @@ const Boards = () => {
                             yiminghe
                           </Select.Option>
                         </Select>
+                      </Form.Item>
+                    </Col>
+                    &nbsp;
+                    <Col>
+                      <Form.Item name="keyword" label="검색어">
+                        <Search
+                          style={{ width: 200 }}
+                          defaultValue={getCurrentKeyword(searchParams)}
+                        />
                       </Form.Item>
                     </Col>
                   </Row>
