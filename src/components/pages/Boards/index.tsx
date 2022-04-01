@@ -179,6 +179,7 @@ const Boards = () => {
           className="site-page-header"
           title="게시판"
           subTitle="여행 도서 목록 입니다"
+          defaultSearchParams={Object.fromEntries(searchParams)}
         >
           <Row>
             <div style={{ flex: 1 }}>
