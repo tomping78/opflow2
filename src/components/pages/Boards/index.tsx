@@ -212,13 +212,6 @@ const Boards = () => {
                 </Paragraph>
               </>
             </div>
-            <div className="image">
-              <img
-                src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
-                alt="content"
-                width="100%"
-              />
-            </div>
           </Row>
         </SearchPageHeader>
         <Table
