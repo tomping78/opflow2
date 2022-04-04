@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import { Form } from 'antd';
+import { FormItemProps } from 'antd/lib/form/FormItem';
 
 export interface FilterProp {
   name: string;
   label?: string | number;
-  formItemProps?: any;
+  formItemProps?: FormItemProps;
   component: ReactNode;
 }
 
