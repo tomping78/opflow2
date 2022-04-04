@@ -11,6 +11,7 @@ import {
   DEFAULT_PAGE_SIZE,
 } from '../../molecules/Table/constants/page';
 import Filter, { FilterProp } from '../../molecules/Filter';
+import { v4 as uuid } from 'uuid';
 
 interface ListTemplateAProps {
   title?: ReactNode;
@@ -26,12 +27,12 @@ interface ListTemplateAProps {
  * Date: 2022-04-01
  */
 const ListTemplateA = ({
-                         title,
-                         subTitle,
-                         url,
-                         columns,
-                         filters,
-                       }: ListTemplateAProps) => {
+  title,
+  subTitle,
+  url,
+  columns,
+  filters,
+}: ListTemplateAProps) => {
   /******************************************
    * Constant / State
    * ****************************************/
@@ -53,9 +54,10 @@ const ListTemplateA = ({
    */
   function onSearch(params: any = {}) {
     setSearchParams({
+      ...params,
       page: DEFAULT_PAGE.toString(),
       size: DEFAULT_PAGE_SIZE.toString(),
-      ...params,
+      _uuid: uuid(),
     });
   }
 
@@ -97,7 +99,7 @@ const ListTemplateA = ({
    * @param queryString
    */
   function getCurrentPageNumberToUsedInTablePagination(
-      queryString = searchParams,
+    queryString = searchParams,
   ) {
     return getCurrentPageFromSearchParams(queryString) + 1;
   }
@@ -130,54 +132,54 @@ const ListTemplateA = ({
         size: getCurrentPageSize(searchParams),
       },
     })
-        .then(response => setData(response.data))
-        .catch(() => setData(undefined));
+      .then(response => setData(response.data))
+      .catch(() => setData(undefined));
   }, [searchParams]);
 
   /******************************************
    * Render
    * ****************************************/
   return (
-      <DefaultTemplate>
-        <SearchPageHeader
-            onSearch={onSearch}
-            className="site-page-header"
-            title={title}
-            subTitle={subTitle}
-            defaultSearchParams={getCurrentSearchParams()}
-        >
-          <Row>
-            <div style={{flex: 1}}>
-              <>
-                <Paragraph>
-                  <Row>
-                    {(filters ?? []).map((filter: FilterProp) => (
-                        <Col>
-                          <Filter {...filter} />
-                        </Col>
-                    ))}
-                  </Row>
-                </Paragraph>
-              </>
-            </div>
-          </Row>
-        </SearchPageHeader>
-        <Table
-            usePagination
-            style={{paddingLeft: 10, paddingRight: 10}}
-            columns={columns}
-            dataSource={data?.content}
-            scroll={{y: 500}}
-            total={data?.totalElements}
-            defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
-            defaultPageSize={getCurrentPageSize()}
-            currentPage={getCurrentPageNumberToUsedInTablePagination()}
-            pageSize={getCurrentPageSize()}
-            onChangePage={onChangePagination}
-            onClick={record => console.log('clicked', record)}
-            onDoubleClick={record => console.log('double clicked', record)}
-        />
-      </DefaultTemplate>
+    <DefaultTemplate>
+      <SearchPageHeader
+        onSearch={onSearch}
+        className="site-page-header"
+        title={title}
+        subTitle={subTitle}
+        defaultSearchParams={getCurrentSearchParams()}
+      >
+        <Row>
+          <div style={{ flex: 1 }}>
+            <>
+              <Paragraph>
+                <Row>
+                  {(filters ?? []).map((filter: FilterProp) => (
+                    <Col>
+                      <Filter {...filter} />
+                    </Col>
+                  ))}
+                </Row>
+              </Paragraph>
+            </>
+          </div>
+        </Row>
+      </SearchPageHeader>
+      <Table
+        usePagination
+        style={{ paddingLeft: 10, paddingRight: 10 }}
+        columns={columns}
+        dataSource={data?.content}
+        scroll={{ y: 500 }}
+        total={data?.totalElements}
+        defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
+        defaultPageSize={getCurrentPageSize()}
+        currentPage={getCurrentPageNumberToUsedInTablePagination()}
+        pageSize={getCurrentPageSize()}
+        onChangePage={onChangePagination}
+        onClick={record => console.log('clicked', record)}
+        onDoubleClick={record => console.log('double clicked', record)}
+      />
+    </DefaultTemplate>
   );
 };
 
