@@ -63,6 +63,7 @@
     "@types/date-fns": "^2.6.0",
     "@types/lodash": "^4.14.181",
     "@types/react-query": "^1.2.9",
+    "@types/uuid": "^8.3.4",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "^8.5.0",
