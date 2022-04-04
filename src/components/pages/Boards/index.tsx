@@ -52,24 +52,30 @@ const filters: FilterProp[] = [
     name: 'category',
     label: '카테고리',
     component: (
-      <Select
-        defaultValue="lucy"
-        placeholder={'선택해주세요'}
-        style={{ width: 250 }}
-      >
-        <Select.Option value="jack">Jack</Select.Option>
-        <Select.Option value="lucy">Lucy</Select.Option>
-      </Select>
+      <>
+        <Select
+          defaultValue="lucy"
+          placeholder={'선택해주세요'}
+          style={{ width: 250 }}
+        >
+          <Select.Option value="jack">Jack</Select.Option>
+          <Select.Option value="lucy">Lucy</Select.Option>
+        </Select>
+        &nbsp; &nbsp;
+      </>
     ),
   },
   {
     name: 'country',
     label: '국가',
     component: (
-      <Select style={{ width: 250 }} placeholder={'선택해주세요'}>
-        <Select.Option value="KOR">KOR</Select.Option>
-        <Select.Option value="JPN">JPN</Select.Option>
-      </Select>
+      <>
+        <Select style={{ width: 250 }} placeholder={'선택해주세요'}>
+          <Select.Option value="KOR">KOR</Select.Option>
+          <Select.Option value="JPN">JPN</Select.Option>
+        </Select>
+        &nbsp; &nbsp;
+      </>
     ),
   },
   {
