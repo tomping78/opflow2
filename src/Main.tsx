@@ -2,7 +2,7 @@ import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Boards from './components/pages/Boards';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
+import React from 'react';
 import {
   NodeIndexOutlined,
   UserOutlined,
@@ -42,19 +42,12 @@ function Header() {
   return <></>;
 }
 
-/**
- * TODO: Need to change selection display when navigation back or forward
- * @constructor
- */
 function Sider() {
-  const [collapsed, toggle] = useState(true);
   const { pathname } = useLocation();
 
   return (
     <AntdSider
-      onMouseOver={() => toggle(false)}
-      onMouseOut={() => toggle(true)}
-      collapsed={collapsed}
+      collapsed={false}
       style={{
         overflow: 'auto',
         height: '100vh',
@@ -63,7 +56,12 @@ function Sider() {
         bottom: 0,
       }}
     >
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={[pathname]}>
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={[pathname]}
+        selectedKeys={[pathname]}
+      >
         <Menu.Item key="/" icon={<UserOutlined />}>
           <Link to="/">홈</Link>
         </Menu.Item>
