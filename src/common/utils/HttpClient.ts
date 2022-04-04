@@ -22,29 +22,18 @@ axios.defaults.headers.common['Content-Type'] = 'application/json';
 /**
  * Request interceptor
  */
-axios.interceptors.request.use(
-  response => {
-    showLoading();
-    return response;
-  },
-  error => {
-    return error;
-  },
-);
+axios.interceptors.request.use(response => {
+  showLoading();
+  return response;
+});
 
 /**
  * Response interceptor
  */
-axios.interceptors.response.use(
-  response => {
-    hideLoading();
-    return response;
-  },
-  error => {
-    hideLoading();
-    return error;
-  },
-);
+axios.interceptors.response.use(response => {
+  hideLoading();
+  return response;
+});
 
 /**
  * Show error response message
@@ -74,7 +63,8 @@ export const HttpClient = {
     return axios
       .get<T, R, D>(url, config)
       .then(response => response)
-      .catch(handlerResponseError);
+      .catch(handlerResponseError)
+      .finally(hideLoading);
   },
   post<T = any, R = AxiosResponse<T>, D = any>(
     url: string,
@@ -84,7 +74,8 @@ export const HttpClient = {
     return axios
       .post<T, R, D>(url, data, config)
       .then(response => response)
-      .catch(handlerResponseError);
+      .catch(handlerResponseError)
+      .finally(hideLoading);
   },
   put<T = any, R = AxiosResponse<T>, D = any>(
     url: string,
@@ -94,7 +85,8 @@ export const HttpClient = {
     return axios
       .put<T, R, D>(url, data, config)
       .then(response => response)
-      .catch(handlerResponseError);
+      .catch(handlerResponseError)
+      .finally(hideLoading);
   },
   delete<T = any, R = AxiosResponse<T>, D = any>(
     url: string,
@@ -103,6 +95,7 @@ export const HttpClient = {
     return axios
       .delete<T, R, D>(url, config)
       .then(response => response)
-      .catch(handlerResponseError);
+      .catch(handlerResponseError)
+      .finally(hideLoading);
   },
 };
