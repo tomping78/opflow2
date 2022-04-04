@@ -1,4 +1,4 @@
-import BaseTemplate from '../BaseTemplate';
+import BaseTemplate from "../BaseTemplate";
 
 /**
  * 대시보드
@@ -7,7 +7,14 @@ import BaseTemplate from '../BaseTemplate';
 const Dashboard = () => {
   return (
     <BaseTemplate>
-      <div>
+      <div
+        style={{
+          position: 'relative',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+      >
         <span
           style={{
             display: 'block',
