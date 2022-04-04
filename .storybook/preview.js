@@ -1,4 +1,5 @@
 import { RecoilRoot } from 'recoil';
+import { BrowserRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 
 /**
@@ -24,8 +25,10 @@ export const parameters = {
  */
 export const decorators = [
   (Story, context) => (
-    <RecoilRoot>
-      <Story {...context} />
-    </RecoilRoot>
+    <BrowserRouter>
+      <RecoilRoot>
+        <Story {...context} />
+      </RecoilRoot>
+    </BrowserRouter>
   ),
 ];
