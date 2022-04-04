@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import SpinStatePortal from './SpinStatePortal';
 import Main from './Main';
+import { BackTop } from 'antd';
 
 /**
  * 전역에 설정이 필요한 경우
@@ -10,7 +11,14 @@ import Main from './Main';
 function App() {
   return (
     <SpinStatePortal>
-      <Main />
+      <>
+        <Main />
+        <BackTop
+          style={{
+            right: 40,
+          }}
+        />
+      </>
     </SpinStatePortal>
   );
 }
