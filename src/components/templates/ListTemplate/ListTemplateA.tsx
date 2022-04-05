@@ -114,7 +114,6 @@ const ListTemplateA = ({
 
   /**
    * 현재 Search Params 가져오기
-   * @param queryString
    */
   function getCurrentSearchParams() {
     return Object.fromEntries(searchParams);
