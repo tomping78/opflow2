@@ -13,6 +13,7 @@
     "@types/react-dom": "^17.0.13",
     "antd": "^4.19.2",
     "axios": "^0.26.1",
+    "comma-number": "^2.1.0",
     "date-fns": "^2.28.0",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
@@ -31,6 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint \"./**\" --fix",
+    "jest": "jest --config ./jest.config.js",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -74,10 +76,12 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "http-proxy-middleware": "^2.0.4",
+    "jest": "^27.5.1",
     "prettier": "^2.6.0",
     "styled-components": "^5.3.3",
     "styled-reset": "^4.3.4",
     "styled-tools": "^1.7.2",
+    "ts-jest": "^27.1.4",
     "webpack": "^5.70.0"
   },
   "eslintConfig": {
