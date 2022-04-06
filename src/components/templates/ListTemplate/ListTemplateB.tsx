@@ -4,7 +4,7 @@ import SearchPageHeader from '../../molecules/SearchPageHeader';
 import { Col, Row } from 'antd';
 import Paragraph from 'antd/es/typography/Paragraph';
 import Table from '../../molecules/Table';
-import { HttpClient } from '../../../common/utils/HttpClient';
+import { HttpClient } from '../../../common/utils/http-client';
 import { useSearchParams } from 'react-router-dom';
 import Filter, { FilterProp } from '../../molecules/Filter';
 import { v4 as uuid } from 'uuid';
