@@ -23,13 +23,7 @@ function Main() {
       <Sider />
       <Layout className="site-layout">
         <Header />
-        <AntdContent
-          style={{
-            width: '100%',
-            height: '90vh',
-            background: '#fff',
-          }}
-        >
+        <AntdContent>
           <Content />
         </AntdContent>
         <Footer />
@@ -48,13 +42,7 @@ function Sider() {
   return (
     <AntdSider
       collapsed={false}
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        left: 0,
-        top: 0,
-        bottom: 0,
-      }}
+      
     >
       <Menu
         theme="dark"
@@ -93,9 +81,7 @@ function Content() {
 
 function Footer() {
   return (
-    <AntdFooter
-      style={{ textAlign: 'center', height: '5vh', background: '#fff' }}
-    >
+    <AntdFooter>
       Copyright © 2022 KIMIDS Co.,Ltd. All rights reserved.
     </AntdFooter>
   );

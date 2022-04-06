@@ -32,7 +32,9 @@ const Notices = () => {
 
   return (
     <>
-      <ListTemplate />
+      <ListTemplate>
+        <span>여기서 하시면 됩니다</span>
+      </ListTemplate>
     </>
   );
 };

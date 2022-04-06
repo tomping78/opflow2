@@ -13,7 +13,7 @@ type BaseTemplateProps = {
  * @constructor
  */
 const BaseTemplate = ({ children }: BaseTemplateProps) => {
-  return <div style={{ width: '100%', height: '100%' }}>{children}</div>;
+  return <div>{children}</div>;
 };
 
 export default BaseTemplate;
