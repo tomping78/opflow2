@@ -155,9 +155,9 @@ const ListTemplateA = ({
           <div style={{ flex: 1 }}>
             <>
               <Paragraph>
-                <Row gutter={[12, 8]}>
+                <Row gutter={[12, 8]} className="rowSpace">
                   {(filters ?? []).map((filter: FilterProp) => (
-                    <Col>
+                    <Col span={8} className="colSpace">
                       <Filter {...filter} />
                     </Col>
                   ))}
@@ -167,21 +167,30 @@ const ListTemplateA = ({
           </div>
         </Row>
       </SearchPageHeader>
-      <Table
-        usePagination
-        style={{ paddingLeft: 10, paddingRight: 10 }}
-        columns={columns}
-        dataSource={data?.content}
-        scroll={{ y: 500 }}
-        total={data?.totalElements}
-        defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
-        defaultPageSize={getCurrentPageSize()}
-        currentPage={getCurrentPageNumberToUsedInTablePagination()}
-        pageSize={getCurrentPageSize()}
-        onChangePage={onChangePagination}
-        onClick={onClick}
-        onDoubleClick={onDoubleClick}
-      />
+      <Row
+        className="site-layout-background"
+        style={{
+          padding: 24,
+          margin: 0,
+          minHeight: 280,
+        }}
+      >
+        <Table
+          usePagination
+          style={{ paddingLeft: 10, paddingRight: 10 }}
+          columns={columns}
+          dataSource={data?.content}
+          scroll={{ y: 500 }}
+          total={data?.totalElements}
+          defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
+          defaultPageSize={getCurrentPageSize()}
+          currentPage={getCurrentPageNumberToUsedInTablePagination()}
+          pageSize={getCurrentPageSize()}
+          onChangePage={onChangePagination}
+          onClick={onClick}
+          onDoubleClick={onDoubleClick}
+        />
+      </Row>
     </DefaultTemplate>
   );
 };

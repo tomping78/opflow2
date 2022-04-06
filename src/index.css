@@ -15,5 +15,8 @@ code {
 #root>.ant-spin-nested-loading {display: flex; width:100%;}
 #root>.ant-spin-nested-loading>.ant-spin-container {display: flex; width:100%;}
 
+.rowSpace {margin-left: -12px; margin-right: -12px; row-gap: 0px;}
+.colSpace {padding-left: 12px; padding-right: 12px;}
+
 .ant-page-header {background: #fff !important; border-bottom:1px solid #e7e7e7; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px; margin-bottom: 30px !important; }
 .ant-layout-footer {background:#fff !important;}

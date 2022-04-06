@@ -52,11 +52,7 @@ const filters: FilterProp[] = [
     name: 'category',
     label: '카테고리',
     component: (
-      <Select
-        defaultValue="lucy"
-        placeholder={'선택해주세요'}
-        style={{ width: 250 }}
-      >
+      <Select defaultValue="lucy" placeholder={'선택해주세요'}>
         <Select.Option value="jack">Jack</Select.Option>
         <Select.Option value="lucy">Lucy</Select.Option>
       </Select>
@@ -66,7 +62,7 @@ const filters: FilterProp[] = [
     name: 'country',
     label: '국가',
     component: (
-      <Select style={{ width: 250 }} placeholder={'선택해주세요'}>
+      <Select placeholder={'선택해주세요'}>
         <Select.Option value="KOR">KOR</Select.Option>
         <Select.Option value="JPN">JPN</Select.Option>
       </Select>
@@ -75,12 +71,7 @@ const filters: FilterProp[] = [
   {
     name: 'keyword',
     label: '검색어',
-    component: (
-      <Search
-        style={{ width: 250 }}
-        placeholder={'제목이나 내용을 입력하세요'}
-      />
-    ),
+    component: <Search placeholder={'제목이나 내용을 입력하세요'} />,
   },
 ];
 
