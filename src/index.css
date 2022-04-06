@@ -14,14 +14,18 @@ code {
 #root {display: flex; height:100vh;}
 #root>.ant-spin-nested-loading {display: flex; width:100%;}
 #root>.ant-spin-nested-loading>.ant-spin-container {display: flex; width:100%;}
-header {display: flex; flex-direction: row; justify-content: space-between; background:#fff !important; border-bottom: 1px solid #001529; padding:0 24px !important;}
+header {display: flex; flex-direction: row; justify-content: space-between; background:#fff !important; border-bottom: 1px solid #0c254b; padding:0 24px !important;}
 header .logo { width:200px; height:64px; background:url(../public/logo_on.png) no-repeat 0 50%;}
-aside {padding-top:18px;}
-footer {padding:10px 24px; border-top:1px solid #ccc;}
+aside {padding-top:18px; background:#0c254b !important;}
+footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 
 .rowSpace {margin-left: -12px; margin-right: -12px; row-gap: 0px;}
 .colSpace {padding-left: 12px; padding-right: 12px;}
 
+.ant-menu.ant-menu-dark {background:#0c254b !important;}
+.ant-menu-dark .ant-menu-sub {background:#0c254b !important;}
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {background-color: #1c4ab4 !important;}
+.ant-menu-dark.ant-menu-horizontal>.ant-menu-item, .ant-menu-dark.ant-menu-horizontal>.ant-menu-submenu {background-color: #0c254b !important;}
 .site-layout {min-width:1000px; overflow-x: auto;}
 .ant-page-header {background: #fff !important; border-bottom:1px solid #e7e7e7; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px;}
 .ant-layout-content {display: flex; flex:1 1 auto; flex-direction: column;}
@@ -33,4 +37,9 @@ footer {padding:10px 24px; border-top:1px solid #ccc;}
 .contentWrap {padding:24px; display: flex; flex-direction: column; flex:1 1 auto;}
 .contentWrap-inner {padding:24px; display: flex; flex-direction: column; background:#fff; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px;}
 
-.ant-table-wrapper {border-top:1px solid #ccc;}
+.ant-table-wrapper {border-top:1px solid #ccc; border-bottom:1px solid #e3e3e3;}
+.ant-table-tbody>tr>td:last-child {border-bottom:none !important;}
+
+.ant-btn-primary {background-color: #1c4ab4 !important; border-color:#1c4ab4 !important;}
+.ant-btn-primary:hover {color:#fff !important;}
+.ant-btn:hover {color: #1c4ab4 !important; border-color: #1c4ab4 !important;}
