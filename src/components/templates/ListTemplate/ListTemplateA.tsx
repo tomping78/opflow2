@@ -155,7 +155,7 @@ const ListTemplateA = ({
           <div style={{ flex: 1 }}>
             <>
               <Paragraph>
-                <Row gutter={[12, 8]}
+                <Row gutter={[12, 8]}>
                   {(filters ?? []).map((filter: FilterProp) => (
                     <Col>
                       <Filter {...filter} />
