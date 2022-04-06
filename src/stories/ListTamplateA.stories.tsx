@@ -1,3 +1,4 @@
+import React from 'react';
 import { ListTemplateA } from '../components/templates/ListTemplate';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { format } from 'date-fns';

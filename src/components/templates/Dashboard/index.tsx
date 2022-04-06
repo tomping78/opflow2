@@ -1,4 +1,5 @@
-import BaseTemplate from "../BaseTemplate";
+import React from 'react';
+import BaseTemplate from '../BaseTemplate';
 
 /**
  * 대시보드

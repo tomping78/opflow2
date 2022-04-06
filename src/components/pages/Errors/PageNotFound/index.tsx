@@ -1,6 +1,7 @@
-import BaseTemplate from "../../../templates/BaseTemplate";
-import { Button, Result } from "antd";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import BaseTemplate from '../../../templates/BaseTemplate';
+import { Button, Result } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * 페이지를 찾지 못했습니다

@@ -1,3 +1,4 @@
+import React from 'react';
 import BaseTemplate from '../../../templates/BaseTemplate';
 
 /**

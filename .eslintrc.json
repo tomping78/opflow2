@@ -1,14 +1,10 @@
 {
   "extends": [
-    "react-app",
-    "eslint:recommended"
+    "react-app"
   ],
   "plugins": [
     "react-hooks"
   ],
-  "env": {
-    "jest": true
-  },
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
@@ -17,6 +13,9 @@
       "modules": true
     },
     "project": "./tsconfig.json"
+  },
+  "env": {
+    "jest": true
   },
   "rules": {
     "react-hooks/rules-of-hooks": "error",

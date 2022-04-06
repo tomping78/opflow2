@@ -97,15 +97,5 @@
         }
       }
     ]
-  },
-  "lint-staged": {
-    "*.ts": [
-      "yarn lint",
-      "yarn jest"
-    ],
-    "*.tsx": [
-      "yarn lint",
-      "yarn jest"
-    ]
   }
 }

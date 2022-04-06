@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import RecoilList from './RecoilList';
 import {
@@ -13,7 +14,7 @@ export default {
   title: '예제/상태관리',
   component: RecoilList,
   parameters: {
-      layout: 'fullscreen',
+    layout: 'fullscreen',
     docs: {
       page: () => (
         <>
