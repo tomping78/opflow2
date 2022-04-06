@@ -4,8 +4,15 @@ module.exports = {
     '@storybook/addon-controls',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        sourceLoaderOptions: {
+          injectStoryParameters: false,
+        },
+      },
+    },
   ],
   framework: '@storybook/react',
   core: {
