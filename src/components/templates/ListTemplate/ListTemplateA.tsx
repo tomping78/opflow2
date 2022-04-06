@@ -15,6 +15,7 @@ import { v4 as uuid } from 'uuid';
 
 interface ListTemplateAProps {
   title?: ReactNode;
+  
   subTitle?: ReactNode;
   url: string;
   columns: any[];
@@ -167,29 +168,23 @@ const ListTemplateA = ({
           </div>
         </Row>
       </SearchPageHeader>
-      <Row
-        className="site-layout-background"
-        style={{
-          padding: 24,
-          margin: 0,
-          minHeight: 280,
-        }}
-      >
-        <Table
-          usePagination
-          style={{ paddingLeft: 10, paddingRight: 10 }}
-          columns={columns}
-          dataSource={data?.content}
-          scroll={{ y: 500 }}
-          total={data?.totalElements}
-          defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
-          defaultPageSize={getCurrentPageSize()}
-          currentPage={getCurrentPageNumberToUsedInTablePagination()}
-          pageSize={getCurrentPageSize()}
-          onChangePage={onChangePagination}
-          onClick={onClick}
-          onDoubleClick={onDoubleClick}
-        />
+      <Row className="contentWrap">
+        <Col className="contentWrap-inner">
+          <Table
+            usePagination
+            columns={columns}
+            dataSource={data?.content}
+            scroll={{ y: 500 }}
+            total={data?.totalElements}
+            defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
+            defaultPageSize={getCurrentPageSize()}
+            currentPage={getCurrentPageNumberToUsedInTablePagination()}
+            pageSize={getCurrentPageSize()}
+            onChangePage={onChangePagination}
+            onClick={onClick}
+            onDoubleClick={onDoubleClick}
+          />
+        </Col>
       </Row>
     </DefaultTemplate>
   );

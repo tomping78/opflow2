@@ -109,15 +109,18 @@ const ListTemplateB = ({
           </div>
         </Row>
       </SearchPageHeader>
-      <Table
-        style={{ paddingLeft: 10, paddingRight: 10 }}
-        columns={columns}
-        dataSource={data?.content}
-        scroll={{ y: 500 }}
-        total={data?.totalElements}
-        onClick={record => console.log('clicked', record)}
-        onDoubleClick={record => console.log('double clicked', record)}
-      />
+      <Row className="contentWrap">
+        <Col className="contentWrap-inner">
+          <Table
+            columns={columns}
+            dataSource={data?.content}
+            scroll={{ y: 500 }}
+            total={data?.totalElements}
+            onClick={record => console.log('clicked', record)}
+            onDoubleClick={record => console.log('double clicked', record)}
+          />
+      </Col>
+      </Row>
     </DefaultTemplate>
   );
 };

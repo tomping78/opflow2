@@ -14,9 +14,23 @@ code {
 #root {display: flex; height:100vh;}
 #root>.ant-spin-nested-loading {display: flex; width:100%;}
 #root>.ant-spin-nested-loading>.ant-spin-container {display: flex; width:100%;}
+header {display: flex; flex-direction: row; justify-content: space-between; background:#fff !important; border-bottom: 1px solid #001529; padding:0 24px !important;}
+header .logo { width:200px; height:64px; background:url(../public/logo_on.png) no-repeat 0 50%;}
+aside {padding-top:18px;}
+footer {padding:10px 24px; border-top:1px solid #ccc;}
 
 .rowSpace {margin-left: -12px; margin-right: -12px; row-gap: 0px;}
 .colSpace {padding-left: 12px; padding-right: 12px;}
 
-.ant-page-header {background: #fff !important; border-bottom:1px solid #e7e7e7; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px; margin-bottom: 30px !important; }
+.site-layout {min-width:1000px; overflow-x: auto;}
+.ant-page-header {background: #fff !important; border-bottom:1px solid #e7e7e7; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px;}
+.ant-layout-content {display: flex; flex:1 1 auto; flex-direction: column;}
+.ant-layout-content > div {display: flex; flex: 1 1 auto; flex-direction: column;}
+.ant-layout-content > div > h1 {display:none;}
 .ant-layout-footer {background:#fff !important;}
+
+.ant-form-horizontal .ant-form-item {margin:0 0 10px;}
+.contentWrap {padding:24px; display: flex; flex-direction: column; flex:1 1 auto;}
+.contentWrap-inner {padding:24px; display: flex; flex-direction: column; background:#fff; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px;}
+
+.ant-table-wrapper {border-top:1px solid #ccc;}
