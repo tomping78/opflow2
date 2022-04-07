@@ -189,7 +189,6 @@ const ListTemplateA = ({
             usePagination
             columns={columns}
             dataSource={data?.content}
-            scroll={{ y: 500 }}
             total={data?.totalElements}
             defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}
             defaultPageSize={getCurrentPageSize()}
