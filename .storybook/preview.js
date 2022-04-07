@@ -1,6 +1,7 @@
-import { RecoilRoot } from 'recoil';
-import { BrowserRouter } from 'react-router-dom';
-import 'antd/dist/antd.css';
+import {RecoilRoot} from 'recoil';
+import {BrowserRouter} from 'react-router-dom';
+import "./main.css";
+import "../src/index.css";
 
 /**
  * StoryBook 파라메터 설정
@@ -9,18 +10,18 @@ import 'antd/dist/antd.css';
  * controls: StoryBook 에서 컴포넌트 정적 핸들링
  */
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  previewTabs: {
-    canvas: {
-      hidden: true,
-    },
-  },
-  viewMode: 'docs',
-  docs: {
-    source: {
-      type: 'dynamic',
-    },
-  },
+	actions: {argTypesRegex: '^on[A-Z].*'},
+	previewTabs: {
+		canvas: {
+			hidden: true,
+		},
+	},
+	viewMode: 'docs',
+	docs: {
+		source: {
+			type: 'dynamic',
+		},
+	},
 };
 
 /**
@@ -29,11 +30,11 @@ export const parameters = {
  * Provider 와 같은 것 설정
  */
 export const decorators = [
-  (Story, context) => (
-    <BrowserRouter>
-      <RecoilRoot>
-        <Story {...context} />
-      </RecoilRoot>
-    </BrowserRouter>
-  ),
+	(Story, context) => (
+		<BrowserRouter>
+			<RecoilRoot>
+				<Story {...context} />
+			</RecoilRoot>
+		</BrowserRouter>
+	),
 ];
