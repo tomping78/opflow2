@@ -33,6 +33,7 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 .ant-layout-content > div > h1 {display:none;}
 .ant-layout-footer {background:#fff !important;}
 
+.ant-menu-item .ant-menu-item-icon, .ant-menu-item .anticon {font-size: 16px !important;}
 .ant-form-horizontal .ant-form-item {margin:0 0 10px;}
 .contentWrap {padding:24px; display: flex; flex-direction: column; flex:1 1 auto;}
 .contentWrap-inner {padding:24px; display: flex; flex-direction: column; background:#fff; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px;}
@@ -40,6 +41,10 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 .ant-table-wrapper {border-top:1px solid #ccc; border-bottom:1px solid #e3e3e3;}
 .ant-table-tbody>tr>td:last-child {border-bottom:none !important;}
 
+.ant-btn:hover {color: #1c4ab4 !important; border-color: #1c4ab4 !important;}
 .ant-btn-primary {background-color: #1c4ab4 !important; border-color:#1c4ab4 !important;}
 .ant-btn-primary:hover {color:#fff !important;}
-.ant-btn:hover {color: #1c4ab4 !important; border-color: #1c4ab4 !important;}
+
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector, .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {border-color: #1c4ab4 !important;}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {background-color: #e6efff !important;}

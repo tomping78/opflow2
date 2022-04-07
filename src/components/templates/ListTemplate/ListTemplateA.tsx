@@ -2,7 +2,6 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { DefaultTemplate } from './index';
 import SearchPageHeader from '../../molecules/SearchPageHeader';
 import { Col, Row } from 'antd';
-import Paragraph from 'antd/es/typography/Paragraph';
 import Table from '../../molecules/Table';
 import { HttpClient } from '../../../common/utils/http-client';
 import { useSearchParams } from 'react-router-dom';
@@ -152,20 +151,12 @@ const ListTemplateA = ({
         subTitle={subTitle}
         defaultSearchParams={getCurrentSearchParams()}
       >
-        <Row>
-          <div style={{ flex: 1 }}>
-            <>
-              <Paragraph>
-                <Row gutter={[12, 8]} className="rowSpace">
-                  {(filters ?? []).map((filter: FilterProp) => (
-                    <Col span={8} className="colSpace">
-                      <Filter {...filter} />
-                    </Col>
-                  ))}
-                </Row>
-              </Paragraph>
-            </>
-          </div>
+        <Row gutter={[12, 8]} className="rowSpace">
+          {(filters ?? []).map((filter: FilterProp) => (
+            <Col span={8} className="colSpace">
+              <Filter {...filter} />
+            </Col>
+          ))}
         </Row>
       </SearchPageHeader>
       <Row className="contentWrap">

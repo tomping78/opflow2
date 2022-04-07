@@ -4,9 +4,9 @@ import Boards from './components/pages/Boards';
 import { Layout, Menu } from 'antd';
 import React from 'react';
 import {
-  NodeIndexOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
+  NotificationOutlined,
+  HomeOutlined,
+  FormOutlined,
 } from '@ant-design/icons';
 import PageNotFound from './components/pages/Errors/PageNotFound';
 import Notices from './components/pages/Notices';
@@ -55,13 +55,13 @@ function Sider() {
         defaultSelectedKeys={[pathname]}
         selectedKeys={[pathname]}
       >
-        <Menu.Item key="/" icon={<UserOutlined />}>
+        <Menu.Item key="/" icon={<HomeOutlined />}>
           <Link to="/">홈</Link>
         </Menu.Item>
-        <Menu.Item key="/boards" icon={<VideoCameraOutlined />}>
+        <Menu.Item key="/boards" icon={<FormOutlined />}>
           <Link to="boards">게시판</Link>
         </Menu.Item>
-        <Menu.Item key="/notices" icon={<NodeIndexOutlined />}>
+        <Menu.Item key="/notices" icon={<NotificationOutlined />}>
           <Link to="notices">공지사항</Link>
         </Menu.Item>
       </Menu>
