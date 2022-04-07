@@ -48,7 +48,7 @@ function Sider() {
   const { pathname } = useLocation();
 
   return (
-    <AntdSider collapsed={false}>
+    <AntdSider collapsed={true}>
       <Menu
         theme="dark"
         mode="inline"
