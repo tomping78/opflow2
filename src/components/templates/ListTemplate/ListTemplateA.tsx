@@ -14,7 +14,6 @@ import { v4 as uuid } from 'uuid';
 
 interface ListTemplateAProps {
   title?: ReactNode;
-  
   subTitle?: ReactNode;
   url: string;
   columns: any[];
@@ -152,8 +151,8 @@ const ListTemplateA = ({
         defaultSearchParams={getCurrentSearchParams()}
       >
         <Row gutter={[12, 8]} className="rowSpace">
-          {(filters ?? []).map((filter: FilterProp) => (
-            <Col span={8} className="colSpace">
+          {(filters ?? []).map((filter: FilterProp, index: number) => (
+            <Col key={index} span={8} className="colSpace">
               <Filter {...filter} />
             </Col>
           ))}
