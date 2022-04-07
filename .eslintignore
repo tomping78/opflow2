@@ -18,3 +18,5 @@ tsconfig.json
 yarn.lock
 .gitattributes
 .eslintrc.json
+
+build
