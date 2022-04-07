@@ -10,11 +10,38 @@ import Filter, { FilterProp } from '../../molecules/Filter';
 import { v4 as uuid } from 'uuid';
 
 interface ListTemplateBProps {
+  /**
+   * 제목
+   */
   title?: ReactNode;
+
+  /**
+   * 설명
+   */
   subTitle?: ReactNode;
+
+  /**
+   * 목록 조회 API URL
+   */
   url: string;
+
+  /**
+   * 목록 테이블 컬럼
+   */
   columns: any[];
+
+  /**
+   * 필터 목록
+   */
   filters?: FilterProp[];
+  /**
+   * 클릭 이벤트
+   */
+  onClick?: (data: any, index: number) => void;
+  /**
+   * 더블 클릭 이벤트
+   */
+  onDoubleClick?: (data: any, index: number) => void;
 }
 
 /**
@@ -28,6 +55,8 @@ const ListTemplateB = ({
   url,
   columns,
   filters,
+  onClick,
+  onDoubleClick,
 }: ListTemplateBProps) => {
   /******************************************
    * Constant / State
@@ -60,6 +89,7 @@ const ListTemplateB = ({
    * ****************************************/
 
   /**
+   *
    * 현재 Search Params 가져오기
    * @param queryString
    */
@@ -98,8 +128,8 @@ const ListTemplateB = ({
             <>
               <Paragraph>
                 <Row gutter={[12, 8]}>
-                  {(filters ?? []).map((filter: FilterProp) => (
-                    <Col>
+                  {(filters ?? []).map((filter: FilterProp, index: number) => (
+                    <Col key={index}>
                       <Filter {...filter} />
                     </Col>
                   ))}
@@ -116,10 +146,10 @@ const ListTemplateB = ({
             dataSource={data?.content}
             scroll={{ y: 500 }}
             total={data?.totalElements}
-            onClick={record => console.log('clicked', record)}
-            onDoubleClick={record => console.log('double clicked', record)}
+            onClick={onClick}
+            onDoubleClick={onDoubleClick}
           />
-      </Col>
+        </Col>
       </Row>
     </DefaultTemplate>
   );

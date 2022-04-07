@@ -10,6 +10,46 @@ import Search from '../components/atoms/Search';
 export default {
   title: '목록 유형',
   component: ListTemplateA,
+  argTypes: {
+    // Assigns the argType to the Text category
+    title: {
+      table: {
+        category: 'Text',
+      },
+    },
+    subTitle: {
+      table: {
+        category: 'Text',
+      },
+    },
+    url: {
+      table: {
+        category: 'Text',
+      },
+    },
+    // Assigns the argType to the Data category
+    columns: {
+      table: {
+        category: 'Data',
+      },
+    },
+    filters: {
+      table: {
+        category: 'Data',
+      },
+    },
+    // Assigns the argType to the Events category
+    onClick: {
+      table: {
+        category: 'Events',
+      },
+    },
+    onDoubleClick: {
+      table: {
+        category: 'Events',
+      },
+    },
+  },
 } as ComponentMeta<typeof ListTemplateA>;
 
 const Template: ComponentStory<typeof ListTemplateA> = args => (

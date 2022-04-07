@@ -13,12 +13,37 @@ import Filter, { FilterProp } from '../../molecules/Filter';
 import { v4 as uuid } from 'uuid';
 
 interface ListTemplateAProps {
+  /**
+   * 제목
+   */
   title?: ReactNode;
+
+  /**
+   * 설명
+   */
   subTitle?: ReactNode;
+
+  /**
+   * 목록 조회 API URL
+   */
   url: string;
+
+  /**
+   * 목록 테이블 컬럼
+   */
   columns: any[];
+
+  /**
+   * 필터 목록
+   */
   filters?: FilterProp[];
+  /**
+   * 클릭 이벤트
+   */
   onClick?: (data: any, index: number) => void;
+  /**
+   * 더블 클릭 이벤트
+   */
   onDoubleClick?: (data: any, index: number) => void;
 }
 
