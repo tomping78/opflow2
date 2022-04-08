@@ -1,6 +1,7 @@
 src/index.tsx
 src/stories
 src/reportWebVitals.ts
+src/assets
 
 public/
 storybook-static/
