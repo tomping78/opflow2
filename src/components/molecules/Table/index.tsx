@@ -85,6 +85,7 @@ const Table = <T extends object = any>({
   return usePagination ? (
     <AntdTable<T>
       {...rest}
+      rowKey={rowKey}
       pagination={{
         ...paginationOptions,
         showSizeChanger: true,
@@ -106,6 +107,7 @@ const Table = <T extends object = any>({
   ) : (
     <AntdTable
       {...rest}
+      rowKey={rowKey}
       pagination={false}
       onRow={(data, index) => ({
         onClick: () => handleRowClick(data, index),
