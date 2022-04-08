@@ -24,7 +24,11 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 
 .ant-menu.ant-menu-dark {background:#0c254b !important;}
 .ant-menu-dark .ant-menu-sub {background:#0c254b !important;}
-.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {background-color: #1c4ab4 !important;}
+.ant-layout-sider-children .ant-menu {margin:0 auto;}
+.ant-layout-sider-children .ant-menu.ant-menu-inline-collapsed {width:55px;}
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {background-color: #1c4ab4 !important; }
+.ant-menu-dark .ant-menu-item {height:55px !important; border-radius: 100%; overflow:hidden; align-items: center;}
+.ant-menu.ant-menu-inline-collapsed > .ant-menu-item .anticon {line-height: 55px !important;}
 .ant-menu-dark.ant-menu-horizontal>.ant-menu-item, .ant-menu-dark.ant-menu-horizontal>.ant-menu-submenu {background-color: #0c254b !important;}
 .site-layout {min-width:1000px; overflow-x: auto; overflow-y: hidden;}
 .ant-page-header {background: #fff !important; border-bottom:1px solid #e7e7e7; box-shadow: rgba(185, 185, 185, 0.2) 1px 5px 10px; z-index: 55;}
