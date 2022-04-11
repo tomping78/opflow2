@@ -109,7 +109,7 @@ const Notices = () => {
       useImmediatelySearch={true}
       title={'공지사항'}
       subTitle="공지사항"
-      url={'/api/boards'}
+      url={'/mock-notices'}
       columns={columns}
       filters={filters}
     />
