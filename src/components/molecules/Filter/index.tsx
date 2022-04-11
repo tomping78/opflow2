@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Form } from 'antd';
 import { FormItemProps } from 'antd/lib/form/FormItem';
 
@@ -6,7 +6,8 @@ export interface FilterProp {
   name: string;
   label?: string | number;
   formItemProps?: FormItemProps;
-  component: ReactNode;
+  component: React.ReactNode;
+  onChange?: (...args: any) => void;
 }
 
 /**
@@ -14,7 +15,13 @@ export interface FilterProp {
  * Author: circlegiven
  * Date: 2022-04-01
  */
-const Filter = ({ name, label, component, formItemProps }: FilterProp) => {
+const Filter = ({
+  name,
+  label,
+  component,
+  formItemProps,
+  onChange,
+}: FilterProp) => {
   /******************************************
    * Constant / State
    * ****************************************/
@@ -40,7 +47,9 @@ const Filter = ({ name, label, component, formItemProps }: FilterProp) => {
    * ****************************************/
   return (
     <Form.Item {...formItemProps} name={name} label={label}>
-      {component}
+      {React.cloneElement(component as React.ReactElement, {
+        onChange: onChange,
+      })}
     </Form.Item>
   );
 };
