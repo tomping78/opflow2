@@ -2,11 +2,10 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { DefaultTemplate } from './index';
 import SearchPageHeader from '../../molecules/SearchPageHeader';
 import { Col, Row } from 'antd';
-import Paragraph from 'antd/es/typography/Paragraph';
 import Table from '../../molecules/Table';
 import { HttpClient } from '../../../common/utils/http-client';
 import { useSearchParams } from 'react-router-dom';
-import Filter, { FilterProp } from '../../molecules/Filter';
+import { FilterProp } from '../../molecules/Filter';
 import { v4 as uuid } from 'uuid';
 
 interface ListTemplateBProps {
@@ -29,7 +28,10 @@ interface ListTemplateBProps {
    * 목록 테이블 컬럼
    */
   columns: any[];
-
+  /**
+   * 변경 즉시 검색 활성화
+   */
+  useImmediatelySearch?: boolean;
   /**
    * 필터 목록
    */
@@ -56,6 +58,7 @@ const ListTemplateB = ({
   url,
   columns,
   filters,
+  useImmediatelySearch,
   onClick,
   onDoubleClick,
 }: ListTemplateBProps) => {
@@ -118,28 +121,14 @@ const ListTemplateB = ({
   return (
     <DefaultTemplate>
       <SearchPageHeader
+        useImmediatelySearch={useImmediatelySearch}
         onSearch={onSearch}
         className="site-page-header"
         title={title}
         subTitle={subTitle}
         defaultSearchParams={getCurrentSearchParams()}
-      >
-        <Row>
-          <div style={{ flex: 1 }}>
-            <>
-              <Paragraph>
-                <Row gutter={[12, 8]}>
-                  {(filters ?? []).map((filter: FilterProp, index: number) => (
-                    <Col key={index}>
-                      <Filter {...filter} />
-                    </Col>
-                  ))}
-                </Row>
-              </Paragraph>
-            </>
-          </div>
-        </Row>
-      </SearchPageHeader>
+        filters={filters}
+      />
       <Row className="contentWrap">
         <Col className="contentWrap-inner">
           <Table
