@@ -8,7 +8,7 @@ import { FilterProp } from '../components/molecules/Filter';
 import Search from '../components/atoms/Search';
 
 export default {
-  title: '목록 유형',
+  title: '컴포넌트/목록 유형',
   component: ListTemplateA,
   argTypes: {
     // Assigns the argType to the Text category
@@ -125,10 +125,10 @@ const filters: FilterProp[] = [
   },
 ];
 
-export const TemplateA = Template.bind({});
-TemplateA.args = {
-  title: 'Template A',
-  subTitle: 'Template A형 예제',
+export const 유형_A = Template.bind({});
+유형_A.args = {
+  title: '목록 유형 A',
+  subTitle: '목록 유형 A형 예제',
   url: '/api/boards',
   columns,
   filters,

@@ -48,9 +48,10 @@ interface ListTemplateAProps {
 }
 
 /**
- * ListTemplate - A
- * Author: circlegiven
- * Date: 2022-04-01
+ * 목록 유형 - A
+ *
+ * @Author: circlegiven
+ * @Date: 2022-04-04
  */
 const ListTemplateA = ({
   title,

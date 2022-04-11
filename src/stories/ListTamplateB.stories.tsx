@@ -8,7 +8,7 @@ import Search from '../components/atoms/Search';
 import { ListTemplateB } from '../components/templates/ListTemplate';
 
 export default {
-  title: '목록 유형',
+  title: '컴포넌트/목록 유형',
   component: ListTemplateB,
   argTypes: {
     // Assigns the argType to the Text category
@@ -125,10 +125,10 @@ const filters: FilterProp[] = [
   },
 ];
 
-export const TemplateB = Template.bind({});
-TemplateB.args = {
-  title: 'Template B',
-  subTitle: 'Template B형 예제',
+export const 유형_B = Template.bind({});
+유형_B.args = {
+  title: '목록 유형 B',
+  subTitle: '목록 유형 B형 예제',
   url: '/api/boards',
   columns,
   filters,

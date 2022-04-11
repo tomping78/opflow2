@@ -76,7 +76,7 @@ const filters: FilterProp[] = [
 ];
 
 /**
- * 목록 A 유형을 사용해서 작성한 게시판 예시 입니다
+ * 유형 A를 사용해서 작성한 목록 페이지 예시
  * @constructor
  */
 const Boards = () => {
