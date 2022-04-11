@@ -9,7 +9,7 @@ import {
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
 } from '../../molecules/Table/constants/page';
-import Filter, { FilterProp } from '../../molecules/Filter';
+import { FilterProp } from '../../molecules/Filter';
 import { v4 as uuid } from 'uuid';
 
 interface ListTemplateAProps {
@@ -32,7 +32,10 @@ interface ListTemplateAProps {
    * 목록 테이블 컬럼
    */
   columns: any[];
-
+  /**
+   * 변경 즉시 검색 활성화
+   */
+  useImmediatelySearch?: boolean;
   /**
    * 필터 목록
    */
@@ -59,6 +62,7 @@ const ListTemplateA = ({
   url,
   columns,
   filters,
+  useImmediatelySearch,
   onClick,
   onDoubleClick,
 }: ListTemplateAProps) => {
@@ -170,20 +174,14 @@ const ListTemplateA = ({
   return (
     <DefaultTemplate>
       <SearchPageHeader
+        useImmediatelySearch={useImmediatelySearch}
         onSearch={onSearch}
+        filters={filters}
         className="site-page-header"
         title={title}
         subTitle={subTitle}
         defaultSearchParams={getCurrentSearchParams()}
-      >
-        <Row gutter={[12, 8]} className="rowSpace">
-          {(filters ?? []).map((filter: FilterProp, index: number) => (
-            <Col key={index} span={8} className="colSpace">
-              <Filter {...filter} />
-            </Col>
-          ))}
-        </Row>
-      </SearchPageHeader>
+      />
       <Row className="contentWrap">
         <Col className="contentWrap-inner">
           <Table
