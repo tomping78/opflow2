@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import {
   Button,
   Form,
@@ -6,12 +6,30 @@ import {
   PageHeaderProps as AntdPageHeaderProps,
   Row,
 } from 'antd';
-import { isNil } from 'lodash';
+import { debounce, isNil } from 'lodash';
+import SearchFilters from '../SearchFilters';
+import { FilterProp } from '../Filter';
 
 interface SearchPageHeaderProps<T = any> extends AntdPageHeaderProps {
-  children: ReactNode;
+  /**
+   * 필터 목록
+   */
+  filters?: FilterProp[];
+  /**
+   * 초기화 버튼 클릭시 검색 비활성화
+   */
   disableInitSearch?: boolean;
+  /**
+   * 검색 필터 초기값
+   */
   defaultSearchParams?: T;
+  /**
+   * 변경 즉시 검색 활성화
+   */
+  useImmediatelySearch?: boolean;
+  /**
+   * 검색 이벤트
+   */
   onSearch: (fields: T) => void;
 }
 
@@ -21,9 +39,10 @@ interface SearchPageHeaderProps<T = any> extends AntdPageHeaderProps {
  * Date: 2022-04-01
  */
 const SearchPageHeader = ({
-  children,
+  filters,
   defaultSearchParams,
   disableInitSearch,
+  useImmediatelySearch,
   onSearch,
   ...props
 }: SearchPageHeaderProps) => {
@@ -58,6 +77,16 @@ const SearchPageHeader = ({
   function handleSearch() {
     form.submit();
   }
+
+  /**
+   * 필터 변경 이벤트
+   */
+  const handleValueChanged = useCallback(
+    debounce(() => {
+      if (useImmediatelySearch) handleSearch();
+    }, 300),
+    [],
+  );
 
   /******************************************
    * Function
@@ -112,7 +141,7 @@ const SearchPageHeader = ({
           </Row>
         }
       >
-        {children}
+        <SearchFilters filters={filters} onChange={handleValueChanged} />
       </AntdPageHeader>
     </Form>
   );
