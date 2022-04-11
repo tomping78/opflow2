@@ -3,6 +3,7 @@ import { Table as AntdTable } from 'antd';
 import { DEFAULT_PAGE, PAGE_SIZE_10, PAGE_SIZE_LIST } from './constants/page';
 import { TablePaginationConfig } from 'antd/lib/table/interface';
 import { TableProps as AntdTableProps } from 'antd/lib/table/Table';
+import { addComma } from '../../../common/utils/numeric-utils';
 
 const DEFAULT_ROW_KEY = 'id';
 
@@ -96,7 +97,7 @@ const Table = <T extends object = any>({
         pageSize: pageSize,
         position: [paginationPosition],
         pageSizeOptions: pageSizeList,
-        showTotal: total => `Total: ${total}`,
+        showTotal: total => `Total: ${addComma(total)}`,
         onChange: onChangePage,
       }}
       onRow={(data, index) => ({
