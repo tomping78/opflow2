@@ -15,7 +15,7 @@ code {
 #root>.ant-spin-nested-loading {display: flex; width:100%;}
 #root>.ant-spin-nested-loading>.ant-spin-container {display: flex; width:100%;}
 header {display: flex; flex-direction: row; justify-content: space-between; background:#fff !important; border-bottom: 1px solid #0c254b; padding:0 24px !important;}
-header .logo { width:200px; height:64px; background:url(../src/assets/images/logo_on.png) no-repeat 0 50%;}
+header .logo { width:200px; height:64px; background:url(../src/assets/images/logo.png) no-repeat 0 50%;}
 aside {padding-top:18px; background:#0c254b !important;}
 footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 
