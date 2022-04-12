@@ -44,13 +44,13 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 
 /* Table list */
 .ant-table-wrapper.board-list {border-top:1px solid #ccc; display: flex; flex-direction: column; flex: 1 1 auto;}
-.ant-table-empty {display: flex !important; flex: 1 1 auto !important;}
 .ant-table-wrapper.board-list .ant-spin-nested-loading {display: flex; flex-direction: column; flex: 1 1 auto;}
 .ant-table-wrapper.board-list .ant-spin-container {display: flex; flex: 1 1 auto; flex-direction: column;}
 .ant-table-wrapper.board-list .ant-table {display: flex; flex-direction: column; flex: 1 1 auto;}
 .ant-table-wrapper.board-list .ant-table-container {display: flex; flex-direction: column; flex: 1 1 auto; border-bottom:1px solid #e3e3e3;}
-.ant-table-empty .ant-table-content {display: flex !important; flex: 1 1 auto !important;}
 .ant-table-wrapper.board-list div.ant-table-body {min-height: 470px !important; max-height: 508px !important; overflow-y: auto !important;}
+.ant-table-empty {display: flex !important; flex: 1 1 auto !important;}
+.ant-table-empty .ant-table-content {display: flex !important; flex: 1 1 auto !important;}
 .ant-table-empty div.ant-table-body {display: flex; flex:1 1 auto; min-height: inherit !important; max-height: inherit !important;}
 .ant-table-empty .ant-table-tbody > tr > td {border-bottom: none !important;}
 /* .ant-table-tbody>tr>td:last-child {border-bottom:none !important;} */
