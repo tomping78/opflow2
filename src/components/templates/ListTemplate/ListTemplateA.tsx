@@ -187,6 +187,7 @@ const ListTemplateA = ({
           <Table
             usePagination
             columns={columns}
+            className="board-list"
             scroll={{y:470}}
             dataSource={data?.content}
             total={data?.totalElements}
