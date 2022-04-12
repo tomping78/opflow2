@@ -45,7 +45,7 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 /* Table */
 .ant-table-wrapper {border-top:1px solid #ccc; border-bottom:1px solid #e3e3e3; display: flex; flex: 1 1 auto;}
 .ant-table-wrapper .ant-spin-nested-loading {display: flex; flex: 1 1 auto;}
-.ant-table-wrapper .ant-spin-container {display: flex; flex: 1 1 auto;}
+.ant-table-wrapper .ant-spin-container {display: flex; flex: 1 1 auto; flex-direction: column;}
 .ant-table-wrapper .ant-table {display: flex; flex: 1 1 auto;}
 .ant-table-wrapper .ant-table-container {display: flex; flex-direction: column; flex: 1 1 auto;}
 .ant-table-wrapper .ant-table-content {display: flex; flex: 1 1 auto;}
