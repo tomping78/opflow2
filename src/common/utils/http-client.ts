@@ -4,13 +4,13 @@ import { RecoilSet } from '../../SpinStatePortal';
 import { spinState } from '../../store/spin';
 
 function showLoading() {
-  RecoilSet<number>(spinState, spinState => spinState + 1);
+  RecoilSet<number>(spinState, spinCount => spinCount + 1);
 }
 
 function hideLoading() {
-  RecoilSet<number>(spinState, spinState => {
-    if (spinState === 0) return spinState;
-    return spinState - 1;
+  RecoilSet<number>(spinState, spinCount => {
+    if (spinCount === 0) return spinCount;
+    return spinCount - 1;
   });
 }
 

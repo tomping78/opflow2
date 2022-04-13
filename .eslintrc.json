@@ -24,6 +24,12 @@
       {
         "additionalHooks": "useRecoilCallback"
       }
+    ],
+    "no-shadow": [
+      2,
+      {
+        "hoist": "all"
+      }
     ]
   }
 }
