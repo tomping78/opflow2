@@ -7,8 +7,6 @@ type User = {
 };
 
 const Page: React.VFC = () => {
-  const [user, setUser] = React.useState<User>();
-
   return (
     <article>
       <section>
