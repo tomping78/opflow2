@@ -1,5 +1,5 @@
 src/index.tsx
-src/stories
+src/stories/Introduction.stories.mdx
 src/reportWebVitals.ts
 src/assets
 

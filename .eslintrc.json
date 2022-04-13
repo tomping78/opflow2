@@ -3,7 +3,8 @@
     "react-app"
   ],
   "plugins": [
-    "react-hooks"
+    "react-hooks",
+    "sonarjs"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -30,6 +31,7 @@
       {
         "hoist": "all"
       }
-    ]
+    ],
+    "sonarjs/prefer-immediate-return": "error"
   }
 }

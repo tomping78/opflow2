@@ -13,8 +13,7 @@ const itemListState = atom<Array<ItemProps>>({
  * 조회
  */
 export function useGetItemList(): ItemProps[] {
-  const list = useRecoilValue(itemListState);
-  return list;
+  return useRecoilValue(itemListState);
 }
 
 /**

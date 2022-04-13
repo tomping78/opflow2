@@ -2,10 +2,6 @@ import React from 'react';
 
 import './page.css';
 
-type User = {
-  name: string;
-};
-
 const Page: React.VFC = () => {
   return (
     <article>
