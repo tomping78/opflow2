@@ -18,8 +18,9 @@ interface ConfirmButtonProps {
 
 /**
  * Confirm 버튼
- * Author: circlegiven
- * Date: 2022-03-31
+ *
+ * @Author: circlegiven
+ * @Date: 2022-03-31
  */
 const ConfirmButton = ({
   icon,

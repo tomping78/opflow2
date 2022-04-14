@@ -5,9 +5,10 @@ export interface TitleProps {
 }
 
 /**
+ * TODO: ...
  *
- * Author: circlegiven
- * Date: 2022-03-24
+ * @Author: circlegiven
+ * @Date: 2022-03-24
  */
 const Title = ({ title }: TitleProps) => {
   /******************************************

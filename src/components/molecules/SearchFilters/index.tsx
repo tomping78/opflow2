@@ -14,9 +14,10 @@ interface SearchFiltersProps {
 }
 
 /**
+ * TODO: ...
  *
- * Author: circlegiven
- * Date: 2022-04-11
+ * @Author: circlegiven
+ * @Date: 2022-04-11
  */
 const SearchFilters = ({ filters, onChange }: SearchFiltersProps) => {
   /******************************************

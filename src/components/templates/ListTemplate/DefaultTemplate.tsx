@@ -8,9 +8,10 @@ interface ListTemplateProps extends TitleProps {
 }
 
 /**
+ * TODO: ...
  *
- * Author: circlegiven
- * Date: 2022-03-24
+ * @Author: circlegiven
+ * @Date: 2022-03-24
  */
 const ListTemplate = ({ title, renderHeader, children }: ListTemplateProps) => {
   /******************************************

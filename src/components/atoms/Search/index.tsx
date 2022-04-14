@@ -8,8 +8,9 @@ interface SearchProps extends AntdSearchProps, InputProps {}
 
 /**
  * Search Component
- * Author: circlegiven
- * Date: 2022-03-30
+ *
+ * @Author: circlegiven
+ * @Date: 2022-03-30
  */
 const Search = ({
   allowClear = true,

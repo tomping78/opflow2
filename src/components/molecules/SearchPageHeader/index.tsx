@@ -35,8 +35,9 @@ interface SearchPageHeaderProps<T = any> extends AntdPageHeaderProps {
 
 /**
  * Search PageHeader
- * Author: circlegiven
- * Date: 2022-04-01
+ *
+ * @Author: circlegiven
+ * @Date: 2022-04-01
  */
 const SearchPageHeader = ({
   filters,

@@ -11,9 +11,10 @@ interface ListProps<T> {
 }
 
 /**
+ * TODO: ...
  *
- * Author: circlegiven
- * Date: 2022-03-24
+ * @Author: circlegiven
+ * @Date: 2022-03-24
  */
 const List = <T,>({
   list,

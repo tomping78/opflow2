@@ -10,8 +10,9 @@ export interface InputProps extends AntdInputProps {
 
 /**
  * Input Component
- * Author: circlegiven
- * Date: 2022-03-30
+ *
+ * @Author: circlegiven
+ * @Date: 2022-03-30
  */
 const Input = ({
   onChange,
