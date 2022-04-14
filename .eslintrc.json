@@ -1,10 +1,12 @@
 {
   "extends": [
-    "react-app"
+    "react-app",
+    "plugin:cypress/recommended"
   ],
   "plugins": [
     "react-hooks",
-    "sonarjs"
+    "sonarjs",
+    "cypress"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -16,7 +18,8 @@
     "project": "./tsconfig.json"
   },
   "env": {
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "rules": {
     "react-hooks/rules-of-hooks": "error",

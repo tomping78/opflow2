@@ -19,6 +19,7 @@ tsconfig.json
 yarn.lock
 .gitattributes
 .eslintrc.json
+cypress.json
 
 build
 __mock__
