@@ -46,7 +46,10 @@ const Filter = ({
    * Render
    * ****************************************/
   return (
-    <Form.Item {...formItemProps} name={name} label={label}>
+    <Form.Item
+      {...formItemProps}
+      name={name}
+      label={label}>
       {React.cloneElement(component as React.ReactElement, {
         onChange: onChange,
       })}

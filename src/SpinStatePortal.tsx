@@ -64,8 +64,7 @@ const SpinStatePortal = ({ children }: SpinStatePortalProps) => {
       spinning={spinStateValue > 0}
       style={{
         maxHeight: 'none',
-      }}
-    >
+      }}>
       {children}
     </Spin>
   );

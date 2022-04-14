@@ -52,7 +52,7 @@ export default {
   },
 } as ComponentMeta<typeof ListTemplateA>;
 
-const Template: ComponentStory<typeof ListTemplateA> = args => (
+const Template: ComponentStory<typeof ListTemplateA> = (args) => (
   <ListTemplateA {...args} />
 );
 
@@ -102,7 +102,9 @@ const filters: FilterProp[] = [
     name: 'category',
     label: '카테고리',
     component: (
-      <Select defaultValue="lucy" placeholder={'선택해주세요'}>
+      <Select
+        defaultValue="lucy"
+        placeholder={'선택해주세요'}>
         <Select.Option value="jack">Jack</Select.Option>
         <Select.Option value="lucy">Lucy</Select.Option>
       </Select>

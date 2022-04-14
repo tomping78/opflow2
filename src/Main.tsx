@@ -41,7 +41,10 @@ function Header() {
   return (
     <AntdHeader className="header">
       <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}>
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>
         <Menu.Item key="3">nav 3</Menu.Item>
@@ -59,15 +62,20 @@ function Sider() {
         theme="dark"
         mode="inline"
         defaultSelectedKeys={[pathname]}
-        selectedKeys={[pathname]}
-      >
-        <Menu.Item key="/" icon={<HomeOutlined />}>
+        selectedKeys={[pathname]}>
+        <Menu.Item
+          key="/"
+          icon={<HomeOutlined />}>
           <Link to="/">홈</Link>
         </Menu.Item>
-        <Menu.Item key="/boards" icon={<FormOutlined />}>
+        <Menu.Item
+          key="/boards"
+          icon={<FormOutlined />}>
           <Link to="boards">게시판</Link>
         </Menu.Item>
-        <Menu.Item key="/notices" icon={<NotificationOutlined />}>
+        <Menu.Item
+          key="/notices"
+          icon={<NotificationOutlined />}>
           <Link to="notices">공지사항</Link>
         </Menu.Item>
       </Menu>
@@ -80,11 +88,23 @@ function Content() {
     <React.Suspense fallback>
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} />
-          <Route path={'/boards'} element={<Boards />} />
-          <Route path={'/notices'} element={<Notices />} />
+          <Route
+            index
+            element={<Home />}
+          />
+          <Route
+            path={'/boards'}
+            element={<Boards />}
+          />
+          <Route
+            path={'/notices'}
+            element={<Notices />}
+          />
         </Route>
-        <Route path="*" element={<PageNotFound />} />
+        <Route
+          path="*"
+          element={<PageNotFound />}
+        />
       </Routes>
     </React.Suspense>
   );

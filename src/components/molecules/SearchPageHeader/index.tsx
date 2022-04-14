@@ -128,20 +128,26 @@ const SearchPageHeader = ({
    * Render
    * ****************************************/
   return (
-    <Form form={form} onFinish={search}>
+    <Form
+      form={form}
+      onFinish={search}>
       <AntdPageHeader
         {...props}
         extra={
           <Row justify={'end'}>
             <Button onClick={handleInitSearch}>초기화</Button>
             &nbsp;
-            <Button htmlType="submit" type="primary">
+            <Button
+              htmlType="submit"
+              type="primary">
               검색
             </Button>
           </Row>
-        }
-      >
-        <SearchFilters filters={filters} onChange={handleValueChanged} />
+        }>
+        <SearchFilters
+          filters={filters}
+          onChange={handleValueChanged}
+        />
       </AntdPageHeader>
     </Form>
   );

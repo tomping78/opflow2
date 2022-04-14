@@ -97,7 +97,7 @@ const Table = <T extends object = any>({
         pageSize: pageSize,
         position: [paginationPosition],
         pageSizeOptions: pageSizeList,
-        showTotal: totalCount => `Total: ${addComma(totalCount)}`,
+        showTotal: (totalCount) => `Total: ${addComma(totalCount)}`,
         onChange: onChangePage,
       }}
       onRow={(data, index) => ({

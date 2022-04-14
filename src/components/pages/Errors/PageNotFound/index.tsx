@@ -24,7 +24,9 @@ const PageNotFound = () => {
         title="404"
         subTitle="Sorry, the page you visited does not exist."
         extra={
-          <Button type="primary" onClick={() => navigate('/')}>
+          <Button
+            type="primary"
+            onClick={() => navigate('/')}>
             홈으로 이동
           </Button>
         }

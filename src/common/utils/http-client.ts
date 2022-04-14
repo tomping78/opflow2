@@ -4,11 +4,11 @@ import { RecoilSet } from '../../SpinStatePortal';
 import { spinState } from '../../store/spin';
 
 function showLoading() {
-  RecoilSet<number>(spinState, spinCount => spinCount + 1);
+  RecoilSet<number>(spinState, (spinCount) => spinCount + 1);
 }
 
 function hideLoading() {
-  RecoilSet<number>(spinState, spinCount => {
+  RecoilSet<number>(spinState, (spinCount) => {
     if (spinCount === 0) return spinCount;
     return spinCount - 1;
   });
@@ -22,7 +22,7 @@ axios.defaults.headers.common['Content-Type'] = 'application/json';
 /**
  * Request interceptor
  */
-axios.interceptors.request.use(response => {
+axios.interceptors.request.use((response) => {
   showLoading();
   return response;
 });
@@ -30,7 +30,7 @@ axios.interceptors.request.use(response => {
 /**
  * Response interceptor
  */
-axios.interceptors.response.use(response => {
+axios.interceptors.response.use((response) => {
   hideLoading();
   return response;
 });
@@ -62,7 +62,7 @@ export const HttpClient = {
   ): Promise<R> {
     return axios
       .get<T, R, D>(url, config)
-      .then(response => response)
+      .then((response) => response)
       .catch(handlerResponseError)
       .finally(hideLoading);
   },
@@ -73,7 +73,7 @@ export const HttpClient = {
   ): Promise<R> {
     return axios
       .post<T, R, D>(url, data, config)
-      .then(response => response)
+      .then((response) => response)
       .catch(handlerResponseError)
       .finally(hideLoading);
   },
@@ -84,7 +84,7 @@ export const HttpClient = {
   ): Promise<R> {
     return axios
       .put<T, R, D>(url, data, config)
-      .then(response => response)
+      .then((response) => response)
       .catch(handlerResponseError)
       .finally(hideLoading);
   },
@@ -94,7 +94,7 @@ export const HttpClient = {
   ): Promise<R> {
     return axios
       .delete<T, R, D>(url, config)
-      .then(response => response)
+      .then((response) => response)
       .catch(handlerResponseError)
       .finally(hideLoading);
   },

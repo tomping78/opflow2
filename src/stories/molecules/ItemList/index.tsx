@@ -9,7 +9,10 @@ const ItemList = () => {
   return (
     <ul>
       {(list ?? []).map((item: ItemProps, index) => (
-        <Item key={index} value={item.value} />
+        <Item
+          key={index}
+          value={item.value}
+        />
       ))}
     </ul>
   );

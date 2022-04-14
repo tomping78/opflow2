@@ -164,7 +164,7 @@ const ListTemplateA = ({
         size: getCurrentPageSize(searchParams),
       },
     })
-      .then(response => setData(response.data))
+      .then((response) => setData(response.data))
       .catch(() => setData(undefined));
   }, [searchParams]);
 
@@ -188,7 +188,7 @@ const ListTemplateA = ({
             usePagination
             columns={columns}
             className="board-list"
-            scroll={{y:470}}
+            scroll={{ y: 470 }}
             dataSource={data?.content}
             total={data?.totalElements}
             defaultCurrentPage={getCurrentPageNumberToUsedInTablePagination()}

@@ -99,9 +99,10 @@ const ConfirmButton = ({
       cancelText={cancelText}
       okText={okText}
       onVisibleChange={handleChangedConfirmVisible}
-      visible={visible}
-    >
-      <Button size={size} type={type}>
+      visible={visible}>
+      <Button
+        size={size}
+        type={type}>
         {children}
       </Button>
     </Popconfirm>

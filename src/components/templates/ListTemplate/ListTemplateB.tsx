@@ -111,7 +111,7 @@ const ListTemplateB = ({
         ...getCurrentSearchParams(),
       },
     })
-      .then(response => setData(response.data))
+      .then((response) => setData(response.data))
       .catch(() => setData(undefined));
   }, [searchParams]);
 

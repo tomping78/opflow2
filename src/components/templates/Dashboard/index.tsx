@@ -14,8 +14,7 @@ const Dashboard = () => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-        }}
-      >
+        }}>
         <span
           style={{
             display: 'block',
@@ -23,8 +22,7 @@ const Dashboard = () => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-          }}
-        >
+          }}>
           대시보드
         </span>
       </div>

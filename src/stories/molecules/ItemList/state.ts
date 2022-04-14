@@ -23,7 +23,7 @@ export function useAddItem() {
   const changeItemList = useSetRecoilState(itemListState);
 
   function addItemToList(item: ItemProps) {
-    changeItemList(itemList => [...itemList, item]);
+    changeItemList((itemList) => [...itemList, item]);
   }
 
   return addItemToList;
@@ -36,7 +36,7 @@ export function useRemoveItem() {
   const changeItemList = useSetRecoilState(itemListState);
 
   function removeItemInList(item: ItemProps) {
-    changeItemList(itemList =>
+    changeItemList((itemList) =>
       (itemList ?? []).filter(
         (itemState: ItemProps) => itemState.value !== item.value,
       ),

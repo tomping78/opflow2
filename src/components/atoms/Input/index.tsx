@@ -60,7 +60,11 @@ const Input = ({
    * Render
    * ****************************************/
   return (
-    <AntdInput {...props} value={value ?? inputValue} onChange={handleChange} />
+    <AntdInput
+      {...props}
+      value={value ?? inputValue}
+      onChange={handleChange}
+    />
   );
 };
 

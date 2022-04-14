@@ -13,13 +13,13 @@ export default {
   },
 } as ComponentMeta<typeof Page>;
 
-const Template: ComponentStory<typeof Boards> = args => <Boards />;
+const Template: ComponentStory<typeof Boards> = () => <Boards />;
 
 export const 유형_A_예시 = Template.bind({});
 
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
-유형_A_예시.play = async ({ canvasElement }) => {
+유형_A_예시.play = ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  const loginButton = await canvas.getByRole('button', { name: /Log in/i });
-  await userEvent.click(loginButton);
+  const loginButton = canvas.getByRole('button', { name: /Log in/i });
+  userEvent.click(loginButton);
 };
