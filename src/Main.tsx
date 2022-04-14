@@ -11,7 +11,12 @@ import {
 import PageNotFound from './components/pages/Errors/PageNotFound';
 import Notices from './components/pages/Notices';
 
-const { Header:AntdHeader, Content: AntdContent, Footer: AntdFooter, Sider: AntdSider } = Layout;
+const {
+  Header: AntdHeader,
+  Content: AntdContent,
+  Footer: AntdFooter,
+  Sider: AntdSider,
+} = Layout;
 
 /**
  * 진입점
@@ -35,13 +40,14 @@ function Main() {
 function Header() {
   return (
     <AntdHeader className="header">
-    <div className="logo" />
-    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-      <Menu.Item key="1">nav 1</Menu.Item>
-      <Menu.Item key="2">nav 2</Menu.Item>
-      <Menu.Item key="3">nav 3</Menu.Item>
-    </Menu>
-  </AntdHeader>);
+      <div className="logo" />
+      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+        <Menu.Item key="1">nav 1</Menu.Item>
+        <Menu.Item key="2">nav 2</Menu.Item>
+        <Menu.Item key="3">nav 3</Menu.Item>
+      </Menu>
+    </AntdHeader>
+  );
 }
 
 function Sider() {
