@@ -38,7 +38,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "dummy": "npx json-server --watch __mock__/notices.json --port 9999"
+    "dummy": "npx json-server --watch __mock__/notices.json --port 9999",
+    "cypress": "cypress open"
   },
   "browserslist": {
     "production": [
