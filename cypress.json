@@ -3,5 +3,6 @@
     "cypress-react-selector": {
       "root": "#root"
     }
-  }
+  },
+  "video": false
 }
