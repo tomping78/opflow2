@@ -20,6 +20,7 @@ yarn.lock
 .gitattributes
 .eslintrc.json
 cypress.json
+cypress/fixtures
 
 build
 __mock__
