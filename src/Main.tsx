@@ -4,9 +4,9 @@ import Boards from './components/pages/Boards';
 import { Layout, Menu } from 'antd';
 import React from 'react';
 import {
-  NotificationOutlined,
-  HomeOutlined,
   FormOutlined,
+  HomeOutlined,
+  NotificationOutlined,
 } from '@ant-design/icons';
 import PageNotFound from './components/pages/Errors/PageNotFound';
 import Notices from './components/pages/Notices';
@@ -37,22 +37,22 @@ function Main() {
   );
 }
 
+/**
+ * GNB
+ * @constructor
+ */
 function Header() {
   return (
     <AntdHeader className="header">
       <div className="logo" />
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
-      </Menu>
     </AntdHeader>
   );
 }
 
+/**
+ * LNB
+ * @constructor
+ */
 function Sider() {
   const { pathname } = useLocation();
 
@@ -83,6 +83,10 @@ function Sider() {
   );
 }
 
+/**
+ * Content
+ * @constructor
+ */
 function Content() {
   return (
     <React.Suspense fallback>
