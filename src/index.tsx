@@ -7,7 +7,7 @@ import { RecoilRoot } from 'recoil';
 import { GlobalConfiguration } from './GlobalConfiguration';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ConfigProvider } from 'antd';
-import DebugObserver from './DebugObserver';
+import DebugStoreObserver from './DebugStoreObserver';
 
 GlobalConfiguration.loadTheme();
 
@@ -25,11 +25,11 @@ ReactDOM.render(
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <RecoilRoot>
-          <DebugObserver>
-            <ConfigProvider componentSize={'middle'}>
+          <ConfigProvider componentSize={'middle'}>
+            <DebugStoreObserver>
               <App />
-            </ConfigProvider>
-          </DebugObserver>
+            </DebugStoreObserver>
+          </ConfigProvider>
         </RecoilRoot>
       </BrowserRouter>
     </QueryClientProvider>
