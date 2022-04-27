@@ -7,9 +7,11 @@ import {
   FormOutlined,
   HomeOutlined,
   NotificationOutlined,
+  RadiusSettingOutlined,
 } from '@ant-design/icons';
 import PageNotFound from './components/pages/Errors/PageNotFound';
 import Notices from './components/pages/Notices';
+import Matrix from './components/pages/Matrix';
 
 const {
   Header: AntdHeader,
@@ -78,6 +80,11 @@ function Sider() {
           icon={<NotificationOutlined />}>
           <Link to="notices">공지사항</Link>
         </Menu.Item>
+        <Menu.Item
+          key="/matrix"
+          icon={<RadiusSettingOutlined />}>
+          <Link to="matrix">매트릭스</Link>
+        </Menu.Item>
       </Menu>
     </AntdSider>
   );
@@ -103,6 +110,10 @@ function Content() {
           <Route
             path={'/notices'}
             element={<Notices />}
+          />
+          <Route
+            path={'/matrix'}
+            element={<Matrix />}
           />
         </Route>
         <Route
