@@ -1,130 +1,105 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, Typography } from 'antd';
+
+const { Title } = Typography;
 
 function Matrix() {
   return (
     <Row className="contentWrap">
       <Col className="contentWrap-inner">
+        <Title level={4}>Matrix Table</Title>
         <div className="MatrixGridArea">
-          <div className="MatrixGrid">
-            <div className="MatrixHeader">
-              <div className="PartHeader">구분</div>
-              {/* header 서브항목 추가시 */}
-              <div className="HeaderRow">
-                <div className="RowHead">5435435</div>
-                <div className="RowSub">
-                  <div>789345</div>
-                  <div>789345</div>
-                </div>
-              </div>
-              {/* header 서브항목 */}
-              <div>7859435</div>
-              <div>7859435</div>
-              <div>7859435</div>
-            </div>
-            <div className="MatrixBody">
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-              <div className="MatrixRow">
-                <div>7859435</div>
-                <div className="BodyRow">
-                  <div>765435</div>
-                  <div>765435</div>
-                </div>
-                <div>7859435</div>
-                <div>7859435</div>
-                <div>7859435</div>
-              </div>
-            </div>
-          </div>
+          <table className="MatrixGrid">
+            <colgroup>
+              <col
+                span={10}
+                width="1%"
+              />
+            </colgroup>
+            <thead>
+              <tr className="MatrixHeader">
+                <th
+                  className="PartHeader"
+                  rowSpan={2}>
+                  구분
+                </th>
+                <th colSpan={2}>ghfdddsgd</th>
+                <th rowSpan={2}>7859435</th>
+                <th rowSpan={2}>7859435</th>
+                <th rowSpan={2}>7859435</th>
+                <th rowSpan={2}>7859435</th>
+                <th rowSpan={2}>7859435</th>
+                <th rowSpan={2}>7859435</th>
+                <th rowSpan={2}>7859435</th>
+              </tr>
+              <tr>
+                <th className="HeadSub">hdfsgf</th>
+                <th className="HeadSub">hdfsgf</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="MatrixRow">
+                <td>7859435</td>
+                <td>765435</td>
+                <td>7835</td>
+                <td>7859435</td>
+                <td>7835</td>
+                <td>785945555555555535</td>
+                <td>7835</td>
+                <td>7859435</td>
+                <td>7859435</td>
+                <td>7859435</td>
+              </tr>
+              <tr className="MatrixRow">
+                <td>7859435</td>
+                <td>765435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7859435</td>
+                <td>7859435</td>
+              </tr>
+              <tr className="MatrixRow">
+                <td>7859435</td>
+                <td>765435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7859435</td>
+                <td>7859435</td>
+              </tr>
+              <tr className="MatrixRow">
+                <td>7859435</td>
+                <td>765435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7859435</td>
+                <td>7859435</td>
+              </tr>
+              <tr className="MatrixRow">
+                <td>7859435</td>
+                <td>765435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7855</td>
+                <td>7859435</td>
+                <td>7859435</td>
+                <td>7859435</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </Col>
     </Row>

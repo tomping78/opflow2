@@ -57,23 +57,14 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 
 
 /* Matrix  */
-.MatrixGridArea {display:flex; flex-direction: column; flex:1 1 auto; overflow: auto;}
-.MatrixGrid {display:flex; flex-direction: column; flex:1 1 auto; border: 1px solid #d8d8d8; border-top:2px solid #0c254b;}
-.MatrixHeader {display: flex; flex-direction: row; flex: 1 1 auto; max-height:70px; min-height: 30px;}
-.MatrixHeader > div {display:flex; width:100%; border-right:1px solid #777; border-bottom:1px solid #aaa; justify-content: center; align-items: center; background:#dbeefa ; color:#111; font-weight: 700;}
-.MatrixHeader div.PartHeader:first-child {background:#acc8f1;}
-.MatrixHeader .HeaderRow {display: flex; flex-direction: column;}
-.MatrixHeader .HeaderRow .RowHead {display: flex; flex:1 1 auto; justify-content: center; align-items: center; width:100%; border-bottom: 1px solid #777;}
-.MatrixHeader .HeaderRow .RowSub {display: flex; flex-direction: row; flex:1 1 auto; width:100%; background:#f6f7eb;}
-.MatrixHeader .HeaderRow .RowSub div {display: flex; justify-content: center; align-items: center; width:100%; border-right: 1px solid #777;}
-.MatrixHeader .HeaderRow .RowSub div:last-child {border-right:none;}
-.MatrixHeader > div:last-child, .MatrixRow > div:last-child {border-right:none;}
-.MatrixBody {display: flex; flex-direction: column; flex:1 1 auto}
-.MatrixRow {display: flex; flex-direction: row; flex:1 1 auto; border-bottom:1px solid #d8d8d8;}
+.MatrixGridArea {display:flex; flex-direction: column; flex:1 1 auto; overflow: auto; border-bottom: 1px solid #d8d8d8; border-top:2px solid #0c254b;}
+.MatrixGrid {border-bottom: 1px solid #d8d8d8; table-layout: fixed; word-break: break-all; font-size: 12px;}
+.MatrixGrid thead th {height:35px; max-height:70px; min-height: 25px; padding:3px 2px; border-right:1px solid #777; border-bottom:1px solid #777; background:#dbeefa ; color:#111; font-weight: 700;}
+.MatrixGrid thead .PartHeader {background:#acc8f1;}
+.MatrixGrid thead .HeadSub {background:#feffea;}
+.MatrixHeader th:last-child, .MatrixRow td:last-child {border-right:none;}
+.MatrixRow {border-bottom:1px solid #d8d8d8;}
 .MatrixRow:last-child {border-bottom: none;}
-.MatrixRow > div {display: flex; width:100%; min-height: 30px; border-right:1px solid #d8d8d8; justify-content: center; align-items: center; color:#888; font-weight: 300;}
-.MatrixRow > div:first-child {background:#f3f3f3; color:#111;}
-.MatrixHeader div.PartHeader:first-child, .MatrixRow > div:first-child {min-width:130px;}
-.MatrixRow .BodyRow {display: flex; flex-direction: row;}
-.MatrixRow .BodyRow div {display: flex; flex: 1 1 auto; justify-content: center; align-items: center; width:100%; height: 100%; border-right:1px solid #d8d8d8;}
-.MatrixRow .BodyRow div:last-child {border-right:none;}
+.MatrixRow td {height:35px; min-height: 25px; line-height: 14px; padding:3px 2px; border-right:1px solid #d8d8d8; color:#888; font-weight: 300; text-align: center;}
+.MatrixRow td:first-child {background:#f3f3f3; color:#111;}
+
