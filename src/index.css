@@ -59,15 +59,15 @@ footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 /* Matrix  */
 .MatrixGridArea {display:flex; flex-direction: column; flex:1 1 auto; overflow: auto; border-bottom: 1px solid #d8d8d8; border-top:2px solid #0c254b;}
 .MatrixGrid {border-bottom: 1px solid #d8d8d8; table-layout: fixed; word-break: break-all; font-size: 12px;}
-.MatrixGrid thead th {height:35px; max-height:70px; min-height: 25px; padding:3px 2px; border-right:1px solid #777; border-bottom:1px solid #777; background:#dbeefa ; color:#111; font-weight: 700;}
+.MatrixGrid thead th {max-height:70px; min-height: 25px; padding:8px 5px; border-right:1px solid #777; border-bottom:1px solid #777; background:#dbeefa ; color:#111; font-weight: 700;}
 .MatrixGrid thead .PartHeader {background:#acc8f1;}
 .MatrixGrid thead .HeadSub {background:#feffea;}
 .MatrixHeader th:last-child, .MatrixRow td:last-child {border-right:none;}
 .MatrixRow {border-bottom:1px solid #d8d8d8;}
 .MatrixRow:last-child {border-bottom: none;}
-.MatrixRow td {height:35px; min-height: 25px; line-height: 14px; padding:3px 2px; border-right:1px solid #d8d8d8; color:#888; font-weight: 300; text-align: center;}
+.MatrixRow td {min-height: 25px; line-height: 14px; padding:5px 2px; border-right:1px solid #d8d8d8; color:#888; font-weight: 300; text-align: center;}
 .MatrixRow td:first-child {background:#f3f3f3; color:#111; border-right: 1px solid #d8d8d8;}
-.MatrixRow td.graph {padding:0;}
+.MatrixRow td.graph {padding:0; vertical-align: top;}
 
 .MatrixGridArea .grid-container {display: grid; gap: 1px; background:#d8d8d8; padding: 0;}
 .MatrixGridArea .grid-item {text-align: center; padding: 10px; align-content: center;}
