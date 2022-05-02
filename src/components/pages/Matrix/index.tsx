@@ -40,62 +40,23 @@ function Matrix() {
             <tbody>
               <tr className="MatrixRow">
                 <td>7859435</td>
-                <td>765435</td>
-                <td>7835</td>
-                <td>7859435</td>
-                <td>7835</td>
-                <td>785945555555555535</td>
-                <td>7835</td>
-                <td>7859435</td>
-                <td>7859435</td>
+                <td
+                  colSpan={9}
+                  rowSpan={5}
+                  className="graph">
+                  765435
+                </td>
+              </tr>
+              <tr className="MatrixRow">
                 <td>7859435</td>
               </tr>
               <tr className="MatrixRow">
                 <td>7859435</td>
-                <td>765435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7859435</td>
-                <td>7859435</td>
               </tr>
               <tr className="MatrixRow">
                 <td>7859435</td>
-                <td>765435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7859435</td>
-                <td>7859435</td>
               </tr>
               <tr className="MatrixRow">
-                <td>7859435</td>
-                <td>765435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7859435</td>
-                <td>7859435</td>
-              </tr>
-              <tr className="MatrixRow">
-                <td>7859435</td>
-                <td>765435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7855</td>
-                <td>7859435</td>
-                <td>7859435</td>
                 <td>7859435</td>
               </tr>
             </tbody>
