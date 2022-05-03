@@ -79,7 +79,7 @@ const ListTemplateB = ({
 
   /**
    * 필터 변경
-   * @param keyword
+   * @param params
    */
   function onSearch(params: any = {}) {
     setSearchParams({
@@ -93,9 +93,7 @@ const ListTemplateB = ({
    * ****************************************/
 
   /**
-   *
    * 현재 Search Params 가져오기
-   * @param queryString
    */
   function getCurrentSearchParams() {
     return Object.fromEntries(searchParams);
