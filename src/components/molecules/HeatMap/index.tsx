@@ -106,7 +106,7 @@ const HeatMap = ({ xAxis, yAxis, data }: any) => {
    * ****************************************/
   return (
     <svg
-      style={{ width: '100%', height: '100%' }}
+      viewBox={'0 0 100 28'}
       preserveAspectRatio="none"
       ref={svgRef}></svg>
   );

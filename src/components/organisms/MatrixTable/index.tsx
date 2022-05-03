@@ -40,11 +40,12 @@ const MatrixTable = ({ data = [], xAxis, yAxis }: MatrixProp) => {
   return (
     <table className="MatrixGrid">
       <colgroup>
-        <col />
-        <col span={xAxis.length} />
+        <col
+          span={xAxis.length + 1}
+          style={{ width: '2%' }}
+        />
       </colgroup>
       <thead>
-        <tr></tr>
         <tr className="MatrixHeader">
           <th className="PartHeader">구분</th>
           {map(xAxis, (d, i) => (
