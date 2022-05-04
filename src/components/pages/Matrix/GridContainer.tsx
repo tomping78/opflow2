@@ -3,7 +3,7 @@ import { Row, Col, Typography } from 'antd';
 
 const { Title } = Typography;
 
-function Matrix() {
+function GridContainer() {
   return (
     <Row className="contentWrap">
       <Col className="contentWrap-inner">
@@ -26,4 +26,4 @@ function Matrix() {
   );
 }
 
-export default Matrix;
+export default GridContainer;
