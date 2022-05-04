@@ -22,10 +22,10 @@ const Matrix = () => {
   }, []);
 
   return (
-    <Row className="contentWrap">
-      <Col className="contentWrap-inner">
+    <Row className='contentWrap'>
+      <Col className='contentWrap-inner'>
         <Title level={4}>Matrix Table</Title>
-        <div className="MatrixGridArea">
+        <div className='MatrixGridArea'>
           <MatrixTable
             xAxis={xAxis}
             yAxis={yAxis}

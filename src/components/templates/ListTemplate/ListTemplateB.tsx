@@ -121,14 +121,14 @@ const ListTemplateB = ({
       <SearchPageHeader
         useImmediatelySearch={useImmediatelySearch}
         onSearch={onSearch}
-        className="site-page-header"
+        className='site-page-header'
         title={title}
         subTitle={subTitle}
         defaultSearchParams={getCurrentSearchParams()}
         filters={filters}
       />
-      <Row className="contentWrap">
-        <Col className="contentWrap-inner">
+      <Row className='contentWrap'>
+        <Col className='contentWrap-inner'>
           <Table
             columns={columns}
             dataSource={data?.content}

@@ -177,17 +177,17 @@ const ListTemplateA = ({
         useImmediatelySearch={useImmediatelySearch}
         onSearch={onSearch}
         filters={filters}
-        className="site-page-header"
+        className='site-page-header'
         title={title}
         subTitle={subTitle}
         defaultSearchParams={getCurrentSearchParams()}
       />
-      <Row className="contentWrap">
-        <Col className="contentWrap-inner">
+      <Row className='contentWrap'>
+        <Col className='contentWrap-inner'>
           <Table
             usePagination
             columns={columns}
-            className="board-list"
+            className='board-list'
             scroll={{ y: 470 }}
             dataSource={data?.content}
             total={data?.totalElements}

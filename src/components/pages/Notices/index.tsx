@@ -53,8 +53,8 @@ const filters: FilterProp[] = [
     label: '카테고리',
     component: (
       <Select placeholder={'선택해주세요'}>
-        <Select.Option value="jack">Jack</Select.Option>
-        <Select.Option value="lucy">Lucy</Select.Option>
+        <Select.Option value='jack'>Jack</Select.Option>
+        <Select.Option value='lucy'>Lucy</Select.Option>
       </Select>
     ),
   },
@@ -63,8 +63,8 @@ const filters: FilterProp[] = [
     label: '국가',
     component: (
       <Select placeholder={'선택해주세요'}>
-        <Select.Option value="KOR">KOR</Select.Option>
-        <Select.Option value="JPN">JPN</Select.Option>
+        <Select.Option value='KOR'>KOR</Select.Option>
+        <Select.Option value='JPN'>JPN</Select.Option>
       </Select>
     ),
   },
@@ -108,7 +108,7 @@ const Notices = () => {
     <ListTemplateA
       useImmediatelySearch={true}
       title={'공지사항'}
-      subTitle="공지사항"
+      subTitle='공지사항'
       url={'/mock-notices'}
       columns={columns}
       filters={filters}

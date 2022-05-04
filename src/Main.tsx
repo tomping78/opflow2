@@ -28,7 +28,7 @@ function Main() {
   return (
     <Layout hasSider>
       <Sider />
-      <Layout className="site-layout">
+      <Layout className='site-layout'>
         <Header />
         <AntdContent>
           <Content />
@@ -45,8 +45,8 @@ function Main() {
  */
 function Header() {
   return (
-    <AntdHeader className="header">
-      <div className="logo" />
+    <AntdHeader className='header'>
+      <div className='logo' />
     </AntdHeader>
   );
 }
@@ -61,29 +61,29 @@ function Sider() {
   return (
     <AntdSider collapsed={true}>
       <Menu
-        theme="dark"
-        mode="inline"
+        theme='dark'
+        mode='inline'
         defaultSelectedKeys={[pathname]}
         selectedKeys={[pathname]}>
         <Menu.Item
-          key="/"
+          key='/'
           icon={<HomeOutlined />}>
-          <Link to="/">홈</Link>
+          <Link to='/'>홈</Link>
         </Menu.Item>
         <Menu.Item
-          key="/boards"
+          key='/boards'
           icon={<FormOutlined />}>
-          <Link to="boards">게시판</Link>
+          <Link to='boards'>게시판</Link>
         </Menu.Item>
         <Menu.Item
-          key="/notices"
+          key='/notices'
           icon={<NotificationOutlined />}>
-          <Link to="notices">공지사항</Link>
+          <Link to='notices'>공지사항</Link>
         </Menu.Item>
         <Menu.Item
-          key="/matrix"
+          key='/matrix'
           icon={<RadiusSettingOutlined />}>
-          <Link to="matrix">매트릭스</Link>
+          <Link to='matrix'>매트릭스</Link>
         </Menu.Item>
       </Menu>
     </AntdSider>
@@ -98,7 +98,7 @@ function Content() {
   return (
     <React.Suspense fallback>
       <Routes>
-        <Route path="/">
+        <Route path='/'>
           <Route
             index
             element={<Home />}
@@ -117,7 +117,7 @@ function Content() {
           />
         </Route>
         <Route
-          path="*"
+          path='*'
           element={<PageNotFound />}
         />
       </Routes>

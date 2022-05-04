@@ -139,8 +139,8 @@ const SearchPageHeader = ({
             <Button onClick={handleInitSearch}>초기화</Button>
             &nbsp;
             <Button
-              htmlType="submit"
-              type="primary">
+              htmlType='submit'
+              type='primary'>
               검색
             </Button>
           </Row>

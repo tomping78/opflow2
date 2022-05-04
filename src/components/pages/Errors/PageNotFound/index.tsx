@@ -20,12 +20,12 @@ const PageNotFound = () => {
           left: '50%',
           transform: 'translate(-50%, -50%)',
         }}
-        status="404"
-        title="404"
-        subTitle="Sorry, the page you visited does not exist."
+        status='404'
+        title='404'
+        subTitle='Sorry, the page you visited does not exist.'
         extra={
           <Button
-            type="primary"
+            type='primary'
             onClick={() => navigate('/')}>
             홈으로 이동
           </Button>

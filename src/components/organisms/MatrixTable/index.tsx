@@ -38,7 +38,7 @@ const MatrixTable = ({ data = [], xAxis, yAxis }: MatrixProp) => {
    * Render
    * ****************************************/
   return (
-    <table className="MatrixGrid">
+    <table className='MatrixGrid'>
       <colgroup>
         <col
           span={xAxis.length + 1}
@@ -46,8 +46,8 @@ const MatrixTable = ({ data = [], xAxis, yAxis }: MatrixProp) => {
         />
       </colgroup>
       <thead>
-        <tr className="MatrixHeader">
-          <th className="PartHeader">구분</th>
+        <tr className='MatrixHeader'>
+          <th className='PartHeader'>구분</th>
           {map(xAxis, (d, i) => (
             <th key={i}>{d}</th>
           ))}
@@ -56,12 +56,12 @@ const MatrixTable = ({ data = [], xAxis, yAxis }: MatrixProp) => {
       <tbody>
         {map(yAxis, (d, i: number) => (
           <tr
-            className="MatrixRow"
+            className='MatrixRow'
             key={i}>
             <td>{d}</td>
             {i === 0 ? (
               <td
-                className="graph"
+                className='graph'
                 rowSpan={yAxis.length}
                 colSpan={xAxis.length}>
                 <HeatMap

@@ -11,4 +11,5 @@ module.exports = {
   endOfLine: 'auto', // 개행문자 유지 (혼합일 경우, 첫 줄 개행문자로 통일)
   bracketSameLine: true,
   singleAttributePerLine: true,
+  jsxSingleQuote: true,
 };
