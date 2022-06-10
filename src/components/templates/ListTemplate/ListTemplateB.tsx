@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { DefaultTemplate } from './index';
+import { ListBaseTemplate } from './index';
 import SearchPageHeader from '../../molecules/SearchPageHeader';
 import { Col, Row } from 'antd';
 import Table from '../../molecules/Table';
@@ -117,7 +117,7 @@ const ListTemplateB = ({
    * Render
    * ****************************************/
   return (
-    <DefaultTemplate>
+    <ListBaseTemplate>
       <SearchPageHeader
         useImmediatelySearch={useImmediatelySearch}
         onSearch={onSearch}
@@ -139,7 +139,7 @@ const ListTemplateB = ({
           />
         </Col>
       </Row>
-    </DefaultTemplate>
+    </ListBaseTemplate>
   );
 };
 

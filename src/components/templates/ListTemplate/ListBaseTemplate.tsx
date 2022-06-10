@@ -8,12 +8,16 @@ interface ListTemplateProps extends TitleProps {
 }
 
 /**
- * TODO: ...
+ * 목록 베이스 템플릿
  *
  * @Author: circlegiven
  * @Date: 2022-03-24
  */
-const ListTemplate = ({ title, renderHeader, children }: ListTemplateProps) => {
+const ListBaseTemplate = ({
+  title,
+  renderHeader,
+  children,
+}: ListTemplateProps) => {
   /******************************************
    * Constant / State
    * ****************************************/
@@ -52,4 +56,4 @@ const ListTemplate = ({ title, renderHeader, children }: ListTemplateProps) => {
   );
 };
 
-export default ListTemplate;
+export default ListBaseTemplate;

@@ -1,5 +1,5 @@
-import DefaultTemplate from './DefaultTemplate';
+import ListBaseTemplate from './ListBaseTemplate';
 import ListTemplateA from './ListTemplateA';
 import ListTemplateB from './ListTemplateB';
 
-export { DefaultTemplate, ListTemplateA, ListTemplateB };
+export { ListBaseTemplate, ListTemplateA, ListTemplateB };
