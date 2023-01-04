@@ -19,9 +19,6 @@ header .logo { width:200px; height:64px; background:url(../src/assets/images/log
 aside {padding-top:18px; background:#0c254b !important;}
 footer {padding:10px 24px !important; border-top:1px solid #ccc;}
 
-.rowSpace {margin-left: -12px; margin-right: -12px; row-gap: 0px;}
-.colSpace {padding-left: 12px; padding-right: 12px;}
-
 .ant-menu.ant-menu-dark {background:#0c254b !important;}
 .ant-menu-dark .ant-menu-sub {background:#0c254b !important;}
 .ant-layout-sider-children .ant-menu {margin:0 auto;}

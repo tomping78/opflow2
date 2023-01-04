@@ -45,13 +45,11 @@ const SearchFilters = ({ filters, onChange }: SearchFiltersProps) => {
    * ****************************************/
   return (
     <Row
-      gutter={[12, 8]}
-      className='rowSpace'>
+      gutter={[24, 8]}>
       {(filters ?? []).map((filter: FilterProp, index: number) => (
         <Col
           key={index}
-          span={8}
-          className='colSpace'>
+          span={8}>
           <Filter
             {...filter}
             onChange={onChange}
